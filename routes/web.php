@@ -26,3 +26,11 @@ Route::get('/halo', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'login'])->name('login');
+
+Route::get('/admin', function () {
+    return view('layouts.admin');
+});
+
+Route::get('/home', function () {
+    return view('dashboard');
+});
