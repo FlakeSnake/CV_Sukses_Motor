@@ -31,11 +31,11 @@
         <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                {{-- <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-plus-square"></i>
-                </div> --}}
-                <div class="sidebar-brand-text mx-3"> CV Sukses Motor </div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
+                 <div class="sidebar-brand-icon rotate-n-0">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="sidebar-brand-text mx-">CV Sukses Motor</div>
             </a>
 
             <!-- Divider -->
@@ -44,8 +44,8 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="/home">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Main Page</span></a>
             </li>
 
             <!-- Divider -->
@@ -91,10 +91,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Menu :</h6>
-                        <a class="collapse-item" href="login.html">Add User</a>
-                        <a class="collapse-item" href="edit.html">Edit User</a>
-                        <a class="collapse-item" href="delete.html">Delete User</a>
-                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="{{ url('/user/create') }}">Add User</a>
+                        <a class="collapse-item" href="{{ url('/user') }}">View All Users</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
@@ -157,7 +155,7 @@
                     </button>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav" style="margin-left: 80%">
+                    <ul class="navbar-nav" style="margin-left: 85%">
 
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -166,16 +164,15 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="btn mr-2">
+                                <a class="btn mr-2" href="user/{{ Auth::user()->id }}">
                                     {{ auth()->user()->name }}
-                                    <i class="now-ui-icons users_single-02"></i>
+                                    <i class="fas fa-fw fa-user"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button class="btn btn-primary" href="">
-                                        Logout
                                         <i class="fas fa-sign-out-alt"></i>
                                     </button>
                                 </form>

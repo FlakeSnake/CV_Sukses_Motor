@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,3 +35,9 @@ Route::get('/admin', function () {
 Route::get('/home', function () {
     return view('dashboard');
 });
+
+Route::get('/user', [UsersController::class, 'index'])->name('user.index');
+Route::get('/user/create', [UsersController::class, 'create'])->name('user.create');
+Route::post('/user/store', [UsersController::class, 'store']);
+Route::get('/user/{id}', [UsersController::class, 'show'])->name('user.show');
+Route::get('/user/{id}/edit', [UsersController::class, 'edit'])->name('user.edit');
