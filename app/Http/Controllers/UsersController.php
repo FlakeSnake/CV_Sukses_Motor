@@ -48,21 +48,21 @@ class UsersController extends Controller
 
         // return $request->file('foto_karyawan')->store('post-images');
 
-        $request->validate([
-            'name' =>'required',
-            'email' => 'required',
-            'jabatan' =>'required',
-            'alamat' =>'required',
-            'no_telp' =>'required',
-            'jenis_kelamin' =>'required',
-            'nomor_rekening_bank' => 'required',
-            'agama' => 'required',
-            'tempat_kelahiran' =>'required',
-            'tanggal_kelahiran' => 'required',
-            'gaji_pokok' => 'required',
-            'total_peminjaman' => 'required',
-            'foto_karyawan' => 'image|file'
-            ]);
+        // $request->validate([
+        //     'name' =>'required',
+        //     'email' => 'required',
+        //     'jabatan' =>'required',
+        //     'alamat' =>'required',
+        //     'no_telp' =>'required',
+        //     'jenis_kelamin' =>'required',
+        //     'nomor_rekening_bank' => 'required',
+        //     'agama' => 'required',
+        //     'tempat_kelahiran' =>'required',
+        //     'tanggal_kelahiran' => 'required',
+        //     'gaji_pokok' => 'required',
+        //     'total_peminjaman' => 'required',
+        //     'foto_karyawan' => 'image|file'
+        //     ]);
 
             User::create([
             'name' => $request->name,
