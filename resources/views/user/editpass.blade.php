@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="password2" class="form-label">Konfirmasi Password</label>
+                            <label for="password2" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control @error('password2') is-invalid @enderror" id="password2" placeholder="Masukkan Password" name="password_confirmation">
                             <div class="invalid-feedback">
                                 @error('password_confirmation')
@@ -29,7 +29,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+                        <button type="submit" class="btn btn-primary mb-5">Update</button>
                     </form>
                 </div>
             </div>
