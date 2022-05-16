@@ -129,7 +129,7 @@ class UsersController extends Controller
                 ->update([
                     'password' => hash::make($request->password)
                 ]);
-        return redirect('/user')->with('status','Password Pegawai berhasil di update !');
+        return redirect('/user')->with('status','Password ' . $user->name . ' berhasil di update !');
     }
 
     public function destroy(User $user)
