@@ -20,39 +20,39 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>Nama</td>
+                                        <td>Name</td>
                                         <td>{{ $User->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Tempat Lahir</td>
+                                        <td>Place of Birth</td>
                                         <td>{{ $User->tempat_kelahiran }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Tanggal Lahir</td>
+                                        <td>Birthday</td>
                                         <td>{{ date('d-F-Y', strtotime($User->tanggal_kelahiran)) }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Jenis Kelamin</td>
+                                        <td>Gender</td>
                                         <td>{{ $User->jenis_kelamin }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Nomor Telepon</td>
+                                        <td>Phone Number</td>
                                         <td>{{ $User->no_telp }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Alamat</td>
+                                        <td>Address</td>
                                         <td style="max-width: 200px">{{ $User->alamat }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Jabatan</td>
+                                        <td>Role</td>
                                         <td>{{ $User->jabatan }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Nomor Rekening Bank</td>
+                                        <td>Bank Account</td>
                                         <td>{{ $User->nomor_rekening_bank }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Agama</td>
+                                        <td>Religion</td>
                                         <td>{{ $User->agama }}</td>
                                     </tr>
                                     <tr>
@@ -76,7 +76,11 @@
             <div class="card mt-5" style="width: 100%;">
                 <div class="card-body">
                     <h4 class="card-title ml-4"><i class="fas fa-image" style="color:orangered"></i> User Profile Picture </h4>
-                    <h4 class="card-title"><img src="{{ asset('assets/image/pp.jpg') }}" alt="" style="width: 100%"></h4>
+                    @if ($User->foto_karyawan)
+                    <h4 class="card-title"><img src="{{ asset('storage/'. $User->foto_karyawan) }}" alt="" style="width: 100%"></h4>
+                    @else
+                    <h4 class="card-title"><img src="{{ asset('assets/image/PP.jpg') }}" alt="" style="width: 100%"></h4>
+                    @endif
 
     </div>
 </div>
