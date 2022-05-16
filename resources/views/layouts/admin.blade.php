@@ -155,7 +155,7 @@
                     </button>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav" style="margin-left: 10%">
+                    <ul class="navbar-nav" style="margin-left: auto">
 
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
