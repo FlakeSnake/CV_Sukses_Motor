@@ -8,7 +8,7 @@
             <h1 class="mt-3">Add User</h1>
             <div class="row ">
                 <div class="col-md-8">
-                    <form method="post" action="{{ url('user/store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('user.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
                             <label for="name" class="form-label">Name</label>
