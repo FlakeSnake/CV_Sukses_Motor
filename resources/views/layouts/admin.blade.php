@@ -155,34 +155,28 @@
                     </button>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav" style="margin-left: 80%">
+                    <ul class="navbar-nav" style="margin-left: 10%">
 
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-left links">
+                <div class="">
                     @auth
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="btn mr-2" href="user/{{ Auth::user()->id }}">
-                                    {{ auth()->user()->name }}
-                                    @if (Auth::user()->foto_karyawan)
-                                    <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 19%; border-radius: 50%"></i>
-                                    @else
-                                    <i class=""><img src="{{ asset('assets/image/PP.jpg') }}" alt="" style="width: 19%; border-radius: 50%"></i>
-                                    @endif
-                                    {{-- <i class="fas fa-fw fa-user"></i> --}}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button class="btn btn-primary" href="">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
+                        <a class="btn" href="user/{{ Auth::user()->id }}">
+                            {{ auth()->user()->name }}
+                            @if (Auth::user()->foto_karyawan)
+                            <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 5%; border-radius: 50%"></i>
+                            @else
+                            <i class=""><img src="{{ asset('assets/image/PP.jpg') }}" alt="" style="width: 5%; border-radius: 50%"></i>
+                            @endif
+                            {{-- <i class="fas fa-fw fa-user"></i> --}}
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-primary" href="">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </form>
                     </div>
 
                     @else
