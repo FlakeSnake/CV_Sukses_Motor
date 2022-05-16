@@ -47,9 +47,7 @@ Route::get('/home', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/user/{user}/editpass', [UsersController::class, 'editpass'])->name('user.editpass');
-    Route::patch('/user/{user}', [UsersController::class, 'updatepass'])->name('user.updatepass');
+    Route::get('/user/edit/{user}/editpass', [UsersController::class, 'editpass'])->name('user.editpass');
+    Route::patch('/user/edit/{user}', [UsersController::class, 'updatepass'])->name('user.updatepass');
     Route::resource('user', UsersController::class);
-
-
 });

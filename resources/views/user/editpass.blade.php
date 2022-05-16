@@ -8,7 +8,7 @@
             <h1 class="mt-3">Change Password</h1>
             <div class="row ">
                 <div class="col-md-8">
-                    <form method="POST" action="{{ route('user.editpass',['user'=>auth()->user()->id])}}">
+                    <form method="POST" action="{{ route('user.updatepass',['user'=>$User->id])}}">
                         @csrf
                         @method('PATCH')
                         <div class="mb-2">

@@ -123,12 +123,8 @@ class UsersController extends Controller
         return view('user.editpass')->with('User', $user);
     }
 
-    public function updatepass(Request $request,User $user){
-
-        $request->validate([
-            'password' =>'required'
-            ]);
-
+    public function updatepass(Request $request,User $user)
+    {
         User::where('id',$user->id)
                 ->update([
                     'password' => hash::make($request->password)
