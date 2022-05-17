@@ -27,7 +27,7 @@
             </div>
             <div class="card-body p-2 m-3">
                 <div class="table-responsive">
-                    <table class="table table-bordered " id="mydatatable" width="100%" cellspacing="0">
+                    <table class="table table-bordered " id="mydatatable" width="100%" cellspacing="100">
                         <thead>
                             <tr>
                                 <th style="text-align: center">No</th>

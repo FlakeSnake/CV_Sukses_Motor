@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,4 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/edit/{user}/editpass', [UsersController::class, 'editpass'])->name('user.editpass');
     Route::patch('/user/edit/{user}', [UsersController::class, 'updatepass'])->name('user.updatepass');
     Route::resource('user', UsersController::class);
+    Route::resource('pembayaran', PembayaranController::class);
 });
+
+

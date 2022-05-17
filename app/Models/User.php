@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     public function pembayaran() {
-        return $this->hasMany('App\Models\pembayaran');
+        return $this->hasMany('App\Models\Pembayaran');
     }
 
     public function gaji() {

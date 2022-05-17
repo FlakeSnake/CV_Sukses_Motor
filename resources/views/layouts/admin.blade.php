@@ -81,6 +81,7 @@
             </div> --}}
 
             <!-- Nav Item - Pages Collapse Menu -->
+            @if(Auth::user()->jabatan == 'Admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
@@ -97,6 +98,7 @@
                     </div>
                 </div>
             </li>
+            @endif
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -110,7 +112,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Employee Menu :</h6>
                         <a class="collapse-item" href="utilities-color.html">Loan</a>
-                        <a class="collapse-item" href="utilities-border.html">Payment</a>
+                        <a class="collapse-item" href="{{ url('/pembayaran') }}">Payment</a>
                     </div>
                 </div>
             </li>
@@ -155,7 +157,7 @@
                     </button>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav" style="margin-left: 10%">
+                    <ul class="navbar-nav" style="margin-left: auto">
 
             <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -257,6 +259,20 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+
+    <script src="{{ asset('assets/DataTables/DataTables-1.10.24/js/dataTables.jqueryui.min') }}">
+    </script>
+    <script src="{{ asset('assets/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('assets/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('assets/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+
+    <script>
+        $('#mydatatable').DataTable({
+            "responsive": true
+        });
+
+    </script>
 
 </body>
 

@@ -9,9 +9,9 @@ class peminjaman extends Model
 {
 
     protected $table = 'tbl_peminjaman';
+    protected $primaryKey = 'id_pinjam';
 
     protected $fillable = [
-        'users_id',
         'alasan_peminjaman',
         'tanggal_peminjaman',
         'jumlah_peminjaman',
