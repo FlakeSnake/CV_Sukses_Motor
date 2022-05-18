@@ -35,7 +35,8 @@ class PembayaranController extends Controller
     public function create()
     {
         $user = User::all();
-        return view('pembayaran.create', compact('user'));
+        $pembayaran = Pembayaran::has('Users')->get();
+        return view('pembayaran.create', ['user' => $user, 'pembayaran' => $pembayaran]);
     }
 
     /**
@@ -46,14 +47,15 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         Pembayaran::create([
             'users_id' => $request->users_id,
             'tanggal_pembayaran' => $request->tanggal_pembayaran,
             'keterangan_pembayaran' => $request->keterangan_pembayaran,
-            'metode_pambayaran' => $request->metode_pambayaran,
+            'metode_pembayaran' => $request->metode_pembayaran,
             'jumlah_pembayaran' => $request->jumlah_pembayaran,
         ]);
-        return redirect('/home')->with('status', 'Data Saved Successfully !');
+        return redirect('/pembayaran')->with('status', 'Data Saved Successfully !');
     }
 
     /**

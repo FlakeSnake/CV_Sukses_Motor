@@ -111,7 +111,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Employee Menu :</h6>
-                        <a class="collapse-item" href="utilities-color.html">Loan</a>
+                        <a class="collapse-item" href="{{ url('/peminjaman') }}">Loan</a>
                         <a class="collapse-item" href="{{ url('/pembayaran') }}">Payment</a>
                     </div>
                 </div>

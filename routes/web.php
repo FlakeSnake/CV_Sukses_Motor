@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PeminjamanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/user/edit/{user}', [UsersController::class, 'updatepass'])->name('user.updatepass');
     Route::resource('user', UsersController::class);
     Route::resource('pembayaran', PembayaranController::class);
+    Route::resource('peminjaman', PeminjamanController::class);
 });
 
 

@@ -38,7 +38,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="metode_pembayaran" class="form-label">Payment Method</label><br>
-                            <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
+                            <select class="form-control" name="metode_pembayaran" id="metode_pembayaran">
                                 <option value="Transfer" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Transfer</option>
                                 <option value="Cash" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Cash</option>
                             </select>
@@ -52,65 +52,6 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- <div class="mb-2">
-                            <label for="alamat" class="form-label">Address</label>
-                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Insert your Address" name="alamat" value="{{ old('alamat')}}">
-                            <div class="invalid-feedback">
-                                @error('alamat')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="" class="form-label">Role</label><br>
-                            <select class="form-control" name="jabatan" id="jabatan">
-                                <option value="Admin" id="jabatan" name="jabatan" value="{{old('jabatan')}}">Admin</option>
-                                <option value="Pegawai" id="jabatan" name="jabatan" value="{{old('jabatan')}}">Pegawai</option>
-                            </select>
-                        </div>
-                        <div class="mb-2">
-                            <label for="nomor_rekening_bank" class="form-label">Bank Account</label>
-                            <input type="text" class="form-control @error('nomor_rekening_bank') is-invalid @enderror" id="nomor_rekening_bank" placeholder="Insert your Bank Account" name="nomor_rekening_bank" value="{{ old('nomor_rekening_bank')}}">
-                            <div class="invalid-feedback">
-                                @error('nomor_rekening_bank')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="agama" class="form-label">Religion</label>
-                            <input type="text" class="form-control @error('agama') is-invalid @enderror" id="agama" placeholder="Insert your Religion" name="agama" value="{{ old('agama')}}">
-                            <div class="invalid-feedback">
-                                @error('agama')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="gaji_pokok" class="form-label">Gaji Pokok</label>
-                            <input type="text" class="form-control @error('gaji_pokok') is-invalid @enderror" id="gaji_pokok" placeholder="Insert your Religion" name="gaji_pokok" value="{{ old('gaji_pokok')}}">
-                            <div class="invalid-feedback">
-                                @error('gaji_pokok')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="total_peminjaman" class="form-label">Total Peminjaman</label>
-                            <input type="text" class="form-control @error('total_peminjaman') is-invalid @enderror" id="total_peminjaman" placeholder="Insert your Religion" name="total_peminjaman" value="{{ old('total_peminjaman')}}">
-                            <div class="invalid-feedback">
-                                @error('total_peminjaman')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Profile Picture</label>
-                            <input type="file" name="foto_karyawan" class="form-control">
-                            @error('foto_karyawan')
-                                {{ $message }}
-                            @enderror
-                        </div> --}}
                         <button type="submit" class="btn btn-primary mb-5">Submit</button>
                     </form>
                 </div>
