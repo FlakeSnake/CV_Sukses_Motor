@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PembayaranController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +34,8 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+        return view('pembayaran.create', compact('user'));
     }
 
     /**
@@ -37,7 +46,14 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pembayaran::create([
+            'users_id' => $request->users_id,
+            'tanggal_pembayaran' => $request->tanggal_pembayaran,
+            'keterangan_pembayaran' => $request->keterangan_pembayaran,
+            'metode_pambayaran' => $request->metode_pambayaran,
+            'jumlah_pembayaran' => $request->jumlah_pembayaran,
+        ]);
+        return redirect('/home')->with('status', 'Data Saved Successfully !');
     }
 
     /**

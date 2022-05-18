@@ -25,9 +25,9 @@
                 </div>
                 @endif
             </div>
-            <div class="card-body p-2 m-3">
+            <div class="card-body p-1 m-2">
                 <div class="table-responsive">
-                    <table class="table table-bordered " id="mydatatable" width="100%" cellspacing="100">
+                    <table class="table table-bordered" id="mydatatable" width="100%" cellspacing="100">
                         <thead>
                             <tr>
                                 <th style="text-align: center">No</th>
@@ -42,11 +42,11 @@
                             @foreach($users as $us)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $us->name }}</td>
-                                <td>{{ $us->email}}</td>
-                                <td>{{ $us->no_telp }}</td>
-                                <td style="max-width: 200px">{{ $us->alamat }}</td>
-                                <td class="text-center">
+                                <td style="max-width: 50px">{{ $us->name }}</td>
+                                <td style="max-width: 100px">{{ $us->email}}</td>
+                                <td style="max-width: 100px">{{ $us->no_telp }}</td>
+                                <td style="max-width: 150px">{{ $us->alamat }}</td>
+                                <td class="text-center" style="max-width: 100px">
                                     <form action="{{ route('user.destroy', ['user' => $us->id]) }}" method="POST">
                                         <a href="{{ url('/user/'.$us->id) }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-exclamation-circle"></i></a>
                                         <a href="{{ route('user.editpass',['user'=>$us->id])}}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-key"></i></a>

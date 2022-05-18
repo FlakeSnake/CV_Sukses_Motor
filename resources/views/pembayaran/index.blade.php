@@ -6,7 +6,7 @@
         <div class="card shadow mb-4">
             <h1 class="mt-4 ml-3">Payment History</h1>
             <div class="card-header">
-                <a href="" class="btn btn-primary btn-icon-split">
+                <a href=" {{ route('pembayaran.create') }}" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus-square"></i>
                     </span>
