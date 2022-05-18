@@ -53,12 +53,9 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-div.dataTables_wrapper {
-    width: 800px;
-    margin: 0 auto;
-}
-
+.dataTables_filter {
+    text-align: right !important;
+    }
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }

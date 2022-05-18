@@ -42,6 +42,11 @@
                                 <option value="Transfer" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Transfer</option>
                                 <option value="Cash" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Cash</option>
                             </select>
+                            <div class="invalid-feedback">
+                                @error('keterangan_pembayaran')
+                                {{$message}}
+                                @enderror
+                            </div>
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_pembayaran" class="form-label">Total Payment</label>

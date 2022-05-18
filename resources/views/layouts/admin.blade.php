@@ -270,14 +270,14 @@
     <script>
         $('#mydatatable').DataTable({
             "responsive": false,
+            "dom": 'lf t ip',
+            "filter": true,
             "lengthChange": false,
             "paging":   true,
             "ordering": true,
             "info":     false,
             "scrollX"   : false,
-            "dom": 'lrtip',
-            "dom": '<lf<t>ip>',
-            "filter": true,
+
         });
     </script>
 
