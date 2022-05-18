@@ -32,9 +32,10 @@
                             <tr>
                                 <th style="text-align: center">No</th>
                                 <th>Name</th>
-                                <th>E-Mail</th>
-                                <th>No. Telp</th>
-                                <th>Address</th>
+                                <th>Payment Date</th>
+                                <th>Total Payment</th>
+                                <th>Note</th>
+                                <th>Method</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,18 +44,17 @@
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
                                 <td>{{ $pb->users->name }}</td>
-                                {{-- <td>{{ $pb->no}}</td>
-                                <td>{{ $pb->no_telp }}</td>
-                                <td style="max-width: 200px">{{ $pb->alamat }}</td>
+                                <td>{{ $pb->tanggal_pembayaran}}</td>
+                                <td>Rp. {{ number_format($pb->jumlah_pembayaran, 0, ',', '.') }}</td>
+                                <td style="max-width: 200px">{{ $pb->keterangan_pembayaran }}</td>
+                                <td>{{ $pb->metode_pembayaran }}</td>
                                 <td class="text-center">
-                                    <form action="{{ route('user.destroy', ['user' => $pb->id]) }}" method="POST">
-                                        <a href="{{ url('/user/'.$pb->id) }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-exclamation-circle"></i></a>
-                                        <a href="{{ route('user.editpass',['user'=>$pb->id])}}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-key"></i></a>
-                                        <a href="{{ url('/user/'.$pb->id.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
+                                        <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

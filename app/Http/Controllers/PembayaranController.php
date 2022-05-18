@@ -60,6 +60,7 @@ class PembayaranController extends Controller
     public function edit(Pembayaran $pembayaran)
     {
         //
+        return view('pembayaran.edit')->with('Pembayaran', $pembayaran);
     }
 
     /**
@@ -72,6 +73,16 @@ class PembayaranController extends Controller
     public function update(Request $request, Pembayaran $pembayaran)
     {
         //
+        Pembayaran::where('id_bayar', $pembayaran->id_bayar)
+            ->update([
+            'tanggal_pembayaran' => $request->tanggal_pembayaran,
+            'keterangan_pembayaran' => $request->keterangan_pembayaran,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'jumlah_pembayaran' => $request->jumlah_pembayaran,
+            ]);
+
+            return redirect('/pembayaran')->with('status', 'Data Successfully Changed!');
+
     }
 
     /**
@@ -83,5 +94,7 @@ class PembayaranController extends Controller
     public function destroy(Pembayaran $pembayaran)
     {
         //
+        $pembayaran->delete();
+        return redirect('/pembayaran')->with('status', 'Data Successfully Deleted');
     }
 }

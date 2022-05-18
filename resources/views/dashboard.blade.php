@@ -15,9 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        @if(Auth::user()->jabatan == 'Admin')
                     <h3 style="text-align: center">You are logged in!</h3>
-                        @endif
                 </div>
             </div>
         </div>
