@@ -33,8 +33,7 @@ class PeminjamanController extends Controller
     public function create()
     {
         $user = User::all();
-        $peminjaman = peminjaman::has('Users')->get();
-        return view('peminjaman.create', ['user' => $user, 'peminjaman' => $peminjaman]);
+        return view('peminjaman.create', compact('user'));
     }
 
     /**
@@ -45,9 +44,16 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        peminjaman::create($request->all());
+        $peminjaman = User::findOrFail($request->id_user);
+        $peminjaman->total_peminjaman += $request->jumlah_peminjaman;
+        $peminjaman->save();
+
+        return redirect('/peminjaman')->with('status', 'Loan Data Saved Successfully');
+
         // dd($request);
         peminjaman::create([
-            'users_id' => $request->users_id,
+            'id_user' => $request->id_user,
             'alasan_peminjaman' => $request->alasan_peminjaman,
             'tanggal_peminjaman' => $request->tanggal_peminjaman,
             'jumlah_peminjaman' => $request->jumlah_peminjaman,

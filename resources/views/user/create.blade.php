@@ -12,7 +12,7 @@
                         @csrf
                         <div class="mb-2">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Insert your Name" name="name" value="{{ old('name')}}">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Insert your Name" name="name" value="{{ old('name')}}" required>
                             <div class="invalid-feedback">
                                 @error('name')
                                 {{$message}}
@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="email" class="form-label">E-Mail</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Insert your Email" name="email" value="{{ old('email')}}">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Insert your Email" name="email" value="{{ old('email')}}" required>
                             <div class="invalid-feedback">
                                 @error('email')
                                 {{$message}}
@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tempat_kelahiran" class="form-label">Place of Birth</label>
-                            <input type="text" class="form-control @error('tempat_kelahiran') is-invalid @enderror" id="tempat_kelahiran" placeholder="Insert your Place of Birth" name="tempat_kelahiran" value="{{ old('tempat_kelahiran')}}">
+                            <input type="text" class="form-control @error('tempat_kelahiran') is-invalid @enderror" id="tempat_kelahiran" placeholder="Insert your Place of Birth" name="tempat_kelahiran" value="{{ old('tempat_kelahiran')}}" required>
                             <div class="invalid-feedback">
                                 @error('tempat_kelahiran')
                                 {{$message}}
@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="date" class="form-label">Birthday</label>
-                            <input type="date" class="form-control @error('tanggal_kelahiran') is-invalid @enderror" id="tanggal_kelahiran" placeholder="Insert your Birthday" name="tanggal_kelahiran" value="{{ old('tanggal_kelahiran')}}">
+                            <input type="date" class="form-control @error('tanggal_kelahiran') is-invalid @enderror" id="tanggal_kelahiran" placeholder="Insert your Birthday" name="tanggal_kelahiran" value="{{ old('tanggal_kelahiran')}}" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_kelahiran')
                                 {{$message}}
@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="no_telp" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Insert your Phone Number" name="no_telp" value="{{ old('no_telp')}}">
+                            <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Insert your Phone Number" name="no_telp" value="{{ old('no_telp')}}" required>
                             <div class="invalid-feedback">
                                 @error('no_telp')
                                 {{$message}}
@@ -64,7 +64,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="alamat" class="form-label">Address</label>
-                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Insert your Address" name="alamat" value="{{ old('alamat')}}">
+                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Insert your Address" name="alamat" value="{{ old('alamat')}}" required>
                             <div class="invalid-feedback">
                                 @error('alamat')
                                 {{$message}}
@@ -89,7 +89,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="agama" class="form-label">Religion</label>
-                            <input type="text" class="form-control @error('agama') is-invalid @enderror" id="agama" placeholder="Insert your Religion" name="agama" value="{{ old('agama')}}">
+                            <input type="text" class="form-control @error('agama') is-invalid @enderror" id="agama" placeholder="Insert your Religion" name="agama" value="{{ old('agama')}}" required>
                             <div class="invalid-feedback">
                                 @error('agama')
                                 {{$message}}
@@ -98,14 +98,14 @@
                         </div>
                         <div class="mb-2">
                             <label for="gaji_pokok" class="form-label">Gaji Pokok</label>
-                            <input type="text" class="form-control @error('gaji_pokok') is-invalid @enderror" id="gaji_pokok" placeholder="Insert your Religion" name="gaji_pokok" value="{{ old('gaji_pokok')}}">
+                            <input type="text" class="form-control @error('gaji_pokok') is-invalid @enderror" id="gaji_pokok" placeholder="Insert your Religion" name="gaji_pokok" value="{{ old('gaji_pokok')}}" required>
                             <div class="invalid-feedback">
                                 @error('gaji_pokok')
                                 {{$message}}
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-2">
+                        {{-- <div class="mb-2">
                             <label for="total_peminjaman" class="form-label">Total Peminjaman</label>
                             <input type="text" class="form-control @error('total_peminjaman') is-invalid @enderror" id="total_peminjaman" placeholder="Insert your Religion" name="total_peminjaman" value="{{ old('total_peminjaman')}}">
                             <div class="invalid-feedback">
@@ -113,7 +113,7 @@
                                 {{$message}}
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="mb-2">
                             <label for="">Profile Picture</label>
                             <input type="file" name="foto_karyawan" class="form-control">

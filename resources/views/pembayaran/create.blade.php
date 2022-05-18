@@ -20,7 +20,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tanggal_pembayaran" class="form-label">Payment Date</label>
-                            <input type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" name="tanggal_pembayaran" value="{{ old('tanggal_pembayaran')}}">
+                            <input type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" name="tanggal_pembayaran" value="{{ old('tanggal_pembayaran')}}" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_pembayaran')
                                 {{$message}}
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="keterangan_pembayaran" class="form-label">Payment Information</label>
-                            <input type="text" class="form-control @error('keterangan_pembayaran') is-invalid @enderror" id="keterangan_pembayaran" placeholder="Insert the Payment Information" name="keterangan_pembayaran" value="{{ old('keterangan_pembayaran')}}">
+                            <input type="text" class="form-control @error('keterangan_pembayaran') is-invalid @enderror" id="keterangan_pembayaran" placeholder="Insert the Payment Information" name="keterangan_pembayaran" value="{{ old('keterangan_pembayaran')}}" required>
                             <div class="invalid-feedback">
                                 @error('keterangan_pembayaran')
                                 {{$message}}
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_pembayaran" class="form-label">Total Payment</label>
-                            <input type="number" class="form-control @error('jumlah_pembayaran') is-invalid @enderror" id="jumlah_pembayaran" placeholder="Insert the Total Payment" name="jumlah_pembayaran" value="{{ old('jumlah_pembayaran')}}">
+                            <input type="number" class="form-control @error('jumlah_pembayaran') is-invalid @enderror" id="jumlah_pembayaran" placeholder="Insert the Total Payment" name="jumlah_pembayaran" value="{{ old('jumlah_pembayaran')}}" required>
                             <div class="invalid-feedback">
                                 @error('jumlah_pembayaran')
                                 {{$message}}

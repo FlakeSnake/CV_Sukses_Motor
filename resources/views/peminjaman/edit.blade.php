@@ -13,7 +13,7 @@
                         @method('PATCH')
                         <div class="mb-2">
                             <label for="alasan_peminjaman" class="form-label">Reason for Borrowing</label>
-                            <input type="text" class="form-control @error('alasan_peminjaman') is-invalid @enderror" id="alasan_peminjaman" placeholder="Masukkan tempat lahir" name="alasan_peminjaman" value="{{ $peminjaman->alasan_peminjaman}}">
+                            <input type="text" class="form-control @error('alasan_peminjaman') is-invalid @enderror" id="alasan_peminjaman" placeholder="Masukkan tempat lahir" name="alasan_peminjaman" value="{{ $peminjaman->alasan_peminjaman}}" required>
                             <div class="invalid-feedback">
                                 @error('alasan_peminjaman')
                                 {{$message}}
@@ -22,7 +22,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tanggal_peminjaman" class="form-label">Loan Date</label>
-                            <input type="date" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" placeholder="Enter Payment Date" name="tanggal_peminjaman" value="{{ $peminjaman->tanggal_peminjaman}}">
+                            <input type="date" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" placeholder="Enter Payment Date" name="tanggal_peminjaman" value="{{ $peminjaman->tanggal_peminjaman}}" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_peminjaman')
                                 {{$message}}
@@ -31,7 +31,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_peminjaman" class="form-label">Loan Amount</label><br>
-                            <input type="text" class="form-control @error('jumlah_peminjaman') is-invalid @enderror" id="jumlah_peminjaman" placeholder="Enter Payment Date" name="jumlah_peminjaman" value="{{ $peminjaman->jumlah_peminjaman}}">
+                            <input type="text" class="form-control @error('jumlah_peminjaman') is-invalid @enderror" id="jumlah_peminjaman" placeholder="Enter Payment Date" name="jumlah_peminjaman" value="{{ $peminjaman->jumlah_peminjaman}}" required>
                             <div class="invalid-feedback">
                                 @error('jumlah_peminjaman')
                                 {{$message}}

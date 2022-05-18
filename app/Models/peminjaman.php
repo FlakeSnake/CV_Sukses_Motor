@@ -12,7 +12,7 @@ class peminjaman extends Model
     protected $primaryKey = 'id_pinjam';
 
     protected $fillable = [
-        'users_id',
+        'id_user',
         'alasan_peminjaman',
         'tanggal_peminjaman',
         'jumlah_peminjaman',
@@ -20,6 +20,6 @@ class peminjaman extends Model
 
     public function Users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
 }

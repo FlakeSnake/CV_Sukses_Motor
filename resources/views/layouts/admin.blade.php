@@ -101,6 +101,7 @@
             @endif
 
             <!-- Nav Item - Utilities Collapse Menu -->
+            @if(Auth::user()->jabatan == 'Admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -116,6 +117,7 @@
                     </div>
                 </div>
             </li>
+            @endif
 
             <!-- Nav Item - Salary Collapse Menu -->
             <li class="nav-item">

@@ -54,7 +54,7 @@ class PembayaranController extends Controller
             $user->save();
             return redirect('/pembayaran')->with('status','Payment Data Saved Successfully !');
         }else{
-            return redirect('/pembayaran')->with('statusdel','There is no debt to pay !');
+            return redirect('/pembayaran')->with('statusdel','Check again with user debt!');
         }
 
         Pembayaran::create([

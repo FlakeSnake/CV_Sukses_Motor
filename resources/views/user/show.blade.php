@@ -7,7 +7,12 @@
     <div class="row">
 
         <div class="col-6">
+            @if(Auth::user()->jabatan == 'Admin')
             <a href="{{ route('user.index')}}" class="btn btn-primary "><i class="fas fa-arrow-left"> Back</i></a>
+            @endif
+            @if(Auth::user()->jabatan == 'Pegawai')
+            <a href="{{ url('/home')}}" class="btn btn-primary "><i class="fas fa-arrow-left"> Back</i></a>
+            @endif
             <div class="card mt-2">
 
                 <div class="card-body">

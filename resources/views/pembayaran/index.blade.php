@@ -49,12 +49,12 @@
                                 <td style="max-width: 200px">{{ $pb->keterangan_pembayaran }}</td>
                                 <td>{{ $pb->metode_pembayaran }}</td>
                                 <td class="text-center">
-                                    <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
-                                        <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    {{-- <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                             @endforeach

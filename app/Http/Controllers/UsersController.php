@@ -76,7 +76,7 @@ class UsersController extends Controller
             'tempat_kelahiran' => $request->tempat_kelahiran,
             'tanggal_kelahiran' => $request->tanggal_kelahiran,
             'gaji_pokok' => $request->gaji_pokok,
-            'total_peminjaman' => $request->total_peminjaman,
+            //'total_peminjaman' => $request->total_peminjaman,
             'foto_karyawan' => $request->file('foto_karyawan')->store('post-images')
         ]);
         return redirect('/home')->with('status', 'Data Saved Successfully !');

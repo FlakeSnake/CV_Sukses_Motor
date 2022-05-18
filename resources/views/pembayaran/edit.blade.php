@@ -13,7 +13,7 @@
                         @method('PATCH')
                         <div class="mb-2">
                             <label for="tanggal_pembayaran" class="form-label">Payment Date</label>
-                            <input type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" placeholder="Enter Payment Date" name="tanggal_pembayaran" value="{{ $Pembayaran->tanggal_pembayaran}}">
+                            <input type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" placeholder="Enter Payment Date" name="tanggal_pembayaran" value="{{ $Pembayaran->tanggal_pembayaran}}" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_pembayaran')
                                 {{$message}}
@@ -22,7 +22,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="keterangan_pembayaran" class="form-label">Payment Note</label>
-                            <input type="text" class="form-control @error('keterangan_pembayaran') is-invalid @enderror" id="keterangan_pembayaran" placeholder="Masukkan tempat lahir" name="keterangan_pembayaran" value="{{ $Pembayaran->keterangan_pembayaran}}">
+                            <input type="text" class="form-control @error('keterangan_pembayaran') is-invalid @enderror" id="keterangan_pembayaran" placeholder="Masukkan tempat lahir" name="keterangan_pembayaran" value="{{ $Pembayaran->keterangan_pembayaran}}" required>
                             <div class="invalid-feedback">
                                 @error('keterangan_pembayaran')
                                 {{$message}}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_pembayaran" class="form-label">Total Payment</label>
-                            <input type="text" class="form-control @error('jumlah_pembayaran') is-invalid @enderror" id="jumlah_pembayaran" placeholder="Masukkan No telepon" name="jumlah_pembayaran" value="{{ $Pembayaran->jumlah_pembayaran}}">
+                            <input type="text" class="form-control @error('jumlah_pembayaran') is-invalid @enderror" id="jumlah_pembayaran" placeholder="Masukkan No telepon" name="jumlah_pembayaran" value="{{ $Pembayaran->jumlah_pembayaran}}" required>
                             <div class="invalid-feedback">
                                 @error('jumlah_pembayaran')
                                 {{$message}}

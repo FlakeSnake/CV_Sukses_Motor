@@ -12,7 +12,7 @@
                         @csrf
                         <div class="mb-2">
                             <label for="" class="form-label">Name</label><br>
-                            <select class="form-control" name="users_id" id="users_id">
+                            <select class="form-control" name="id_user" id="id_user">
                                 @foreach ($user as $us)
                                     <option value="{{ $us->id }}">{{ $us->name }}</option>
                                 @endforeach
@@ -20,7 +20,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="alasan_peminjaman" class="form-label">Reason for Borrowing</label>
-                            <input type="text" class="form-control @error('alasan_peminjaman') is-invalid @enderror" id="alasan_peminjaman" placeholder="Insert the Reason for Borrowing" name="alasan_peminjaman" value="{{ old('alasan_peminjaman')}}">
+                            <input type="text" class="form-control @error('alasan_peminjaman') is-invalid @enderror" id="alasan_peminjaman" placeholder="Insert the Reason for Borrowing" name="alasan_peminjaman" value="{{ old('alasan_peminjaman')}}" required>
                             <div class="invalid-feedback">
                                 @error('alasan_peminjaman')
                                 {{$message}}
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tanggal_peminjaman" class="form-label">Loan Date</label>
-                            <input type="date" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" name="tanggal_peminjaman" value="{{ old('tanggal_peminjaman')}}">
+                            <input type="date" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" name="tanggal_peminjaman" value="{{ old('tanggal_peminjaman')}}" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_peminjaman')
                                 {{$message}}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_peminjaman" class="form-label">Loan Amount</label>
-                            <input type="number" class="form-control @error('jumlah_peminjaman') is-invalid @enderror" id="jumlah_peminjaman" placeholder="Insert the Loan Amount" name="jumlah_peminjaman" value="{{ old('jumlah_peminjaman')}}">
+                            <input type="number" class="form-control @error('jumlah_peminjaman') is-invalid @enderror" id="jumlah_peminjaman" placeholder="Insert the Loan Amount" name="jumlah_peminjaman" value="{{ old('jumlah_peminjaman')}}" required>
                             <div class="invalid-feedback">
                                 @error('jumlah_peminjaman')
                                 {{$message}}
