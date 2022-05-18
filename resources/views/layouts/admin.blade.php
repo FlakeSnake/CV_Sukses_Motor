@@ -269,10 +269,20 @@
 
     <script>
         $('#mydatatable').DataTable({
-            "responsive": true
+            "responsive": false,
+            "lengthChange": false,
+            "paging":   true,
+            "ordering": true,
+            "info":     false,
+            "scrollX"   : false,
+            "dom": 'lrtip',
+            "dom": '<lf<t>ip>',
+            "filter": true,
         });
-
     </script>
+
+
+
 
 </body>
 

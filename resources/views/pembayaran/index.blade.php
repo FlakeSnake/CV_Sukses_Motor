@@ -13,7 +13,7 @@
                     <span class="text">Add Payment</span>
                 </a>
             </div>
-            <div class="col-5">
+            <div class="col-4">
                 @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
