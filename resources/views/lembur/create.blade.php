@@ -11,10 +11,12 @@
                     <form method="post" action="{{ route('lembur.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
-                            <label for="" class="form-label">Name</label><br>
-                            <select class="form-control" name="id_user" id="id_user">
-                                @foreach ($user as $us)
-                                    <option value="{{ $us->id }}">{{ $us->name }}</option>
+                            <label for="id_gaji" class="form-label">Name</label><br>
+                            <select class="form-control" name="id_gaji" id="id_gaji">
+                                @foreach ($gaji as $gj)
+                                    @foreach ($user as $us)
+                                        <option value="{{ $gj->id_gaji }}">{{ $us->name }}</option>
+                                    @endforeach
                                 @endforeach
                             </select>
                         </div>

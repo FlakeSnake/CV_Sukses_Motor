@@ -48,6 +48,7 @@ class LemburController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'total_jam_lembur' => $request->total_jam_lembur,
