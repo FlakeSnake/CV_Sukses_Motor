@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\LemburController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PeminjamanController;
@@ -38,6 +40,10 @@ Route::get('/home', function () {
     return view('dashboard');
 });
 
+Route::get('/dashboard', function () {
+    return view('/login');
+});
+
 // Route::get('/user', [UsersController::class, 'index'])->name('user.index');
 // Route::get('/user/create', [UsersController::class, 'create']);
 // Route::post('/user/store', [UsersController::class, 'store']);
@@ -54,6 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', UsersController::class);
     Route::resource('pembayaran', PembayaranController::class);
     Route::resource('peminjaman', PeminjamanController::class);
+    Route::resource('absensi', AbsensiController::class);
+    Route::resource('lembur', LemburController::class);
 });
 
 

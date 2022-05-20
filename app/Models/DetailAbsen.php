@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailAbsen extends Model
 {
+    protected $table = 'tbl_dtl_jam_hadir';
+
+    protected $primaryKey = 'id_dtl_jam_hadir';
+
     protected $fillable = [
         'id_lembur',
         'tanggal_lembur',

@@ -15,12 +15,16 @@ class lembur extends Model
         'periode_gaji',
     ];
 
-    public function tbl_gaji()
+    protected $table = 'tbl_lembur';
+
+    protected $primaryKey = 'id_lembur';
+
+    public function gaji()
     {
         return $this->belongsTo('App\Models\gaji');
     }
 
-    public function tbl_dtl_jam_hadir() {
+    public function dtl_jam_hadir() {
         return $this->hasMany('App\Models\DetailAbsen');
     }
 }
