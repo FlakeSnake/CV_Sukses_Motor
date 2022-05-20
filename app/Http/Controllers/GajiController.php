@@ -45,7 +45,7 @@ class GajiController extends Controller
     public function store(Request $request)
     {
         gaji::create([
-            'users_id' => $request->users_id,
+            'id_user' => $request->id_user,
             'total_gaji' => $request->total_gaji,
             'periode_gaji' => $request->periode_gaji,
         ]);

@@ -12,7 +12,7 @@
                         @csrf
                         <div class="mb-2">
                             <label for="" class="form-label">Name</label><br>
-                            <select class="form-control" name="users_id" id="users_id">
+                            <select class="form-control" name="id_user" id="id_user">
                                 @foreach ($user as $us)
                                     <option value="{{ $us->id }}">{{ $us->name }}</option>
                                 @endforeach

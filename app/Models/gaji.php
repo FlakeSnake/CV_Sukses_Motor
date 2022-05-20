@@ -8,18 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class gaji extends Model
 {
     protected $table = 'tbl_gaji';
-
     protected $primaryKey = 'id_gaji';
 
     protected $fillable = [
-        'users_id',
+        'id_user',
         'total_gaji',
         'periode_gaji',
     ];
 
     public function Users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User','id_user','id');
     }
 
     public function tbl_lembur() {
