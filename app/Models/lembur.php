@@ -21,7 +21,7 @@ class lembur extends Model
 
     public function gaji()
     {
-        return $this->belongsTo('App\Models\gaji');
+        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_gaji');
     }
 
     public function dtl_jam_hadir() {

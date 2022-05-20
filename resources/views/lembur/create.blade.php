@@ -19,40 +19,19 @@
                             </select>
                         </div>
                         <div class="mb-2">
-                            <label for="tanggal_pembayaran" class="form-label">Payment Date</label>
-                            <input type="date" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" name="tanggal_pembayaran" value="{{ old('tanggal_pembayaran')}}" required>
+                            <label for="total_jam_lembur" class="form-label">Total Overtime Hours</label>
+                            <input type="number" class="form-control @error('total_jam_lembur') is-invalid @enderror" id="total_jam_lembur" name="total_jam_lembur" value="{{ old('total_jam_lembur')}}" required>
                             <div class="invalid-feedback">
-                                @error('tanggal_pembayaran')
+                                @error('total_jam_lembur')
                                 {{$message}}
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="keterangan_pembayaran" class="form-label">Payment Information</label>
-                            <input type="text" class="form-control @error('keterangan_pembayaran') is-invalid @enderror" id="keterangan_pembayaran" placeholder="Insert the Payment Information" name="keterangan_pembayaran" value="{{ old('keterangan_pembayaran')}}" required>
+                            <label for="periode_gaji" class="form-label">Period</label>
+                            <input type="month" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
                             <div class="invalid-feedback">
-                                @error('keterangan_pembayaran')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="metode_pembayaran" class="form-label">Payment Method</label><br>
-                            <select class="form-control" name="metode_pembayaran" id="metode_pembayaran">
-                                <option value="Transfer" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Transfer</option>
-                                <option value="Cash" id="metode_pembayaran" name="metode_pembayaran" value="{{old('metode_pembayaran')}}">Cash</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                @error('keterangan_pembayaran')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="jumlah_pembayaran" class="form-label">Total Payment</label>
-                            <input type="number" class="form-control @error('jumlah_pembayaran') is-invalid @enderror" id="jumlah_pembayaran" placeholder="Insert the Total Payment" name="jumlah_pembayaran" value="{{ old('jumlah_pembayaran')}}" required>
-                            <div class="invalid-feedback">
-                                @error('jumlah_pembayaran')
+                                @error('periode_gaji')
                                 {{$message}}
                                 @enderror
                             </div>

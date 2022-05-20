@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetailAbsen;
+use App\Models\gaji;
 use App\Models\lembur;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,8 +35,9 @@ class LemburController extends Controller
     public function create()
     {
         $detail = DetailAbsen::all();
+        $gaji = gaji::all();
         $user = User::all();
-        return view('lembur.create', compact('detail','user'));
+        return view('lembur.create', compact('detail','user','gaji'));
     }
 
     /**
@@ -49,8 +51,6 @@ class LemburController extends Controller
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'total_jam_lembur' => $request->total_jam_lembur,
-            'uang_lembur' => $request->uang_lembur,
-            'total_uang_lembur' => $request->total_uang_lembur,
             'periode_gaji' => $request->periode_gaji
         ]);
 
