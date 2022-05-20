@@ -43,7 +43,7 @@
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
                                 <td>{{ $pm->users->name }}</td>
                                 <td>Rp. {{ number_format($pm->total_gaji, 0, ',', '.') }}</td>
-                                <td>{{ $pm->periode_gaji }}</td>
+                                <td>{{ date_format($pm->periode_gaji, "mmmm/Y") }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('/gaji/'.$pm->id_gaji.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                     {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
