@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\GajiController;
 use App\Http\Controllers\LemburController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PembayaranController;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('peminjaman', PeminjamanController::class);
     Route::resource('absensi', AbsensiController::class);
     Route::resource('lembur', LemburController::class);
+    Route::resource('gaji', GajiController::class);
 });
 
 

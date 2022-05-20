@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class lembur extends Model
 {
+    protected $table = 'tbl_lembur';
+
+    protected $primaryKey = 'id_lembur';
+
     protected $fillable = [
         'id_gaji',
         'total_jam_lembur',
@@ -14,10 +18,6 @@ class lembur extends Model
         'total_uang_lembur',
         'periode_gaji',
     ];
-
-    protected $table = 'tbl_lembur';
-
-    protected $primaryKey = 'id_lembur';
 
     public function gaji()
     {

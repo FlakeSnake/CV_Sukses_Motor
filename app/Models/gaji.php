@@ -7,15 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class gaji extends Model
 {
+    protected $table = 'tbl_gaji';
+
+    protected $primaryKey = 'id_gaji';
+
     protected $fillable = [
-        'id_user',
+        'users_id',
         'total_gaji',
         'periode_gaji',
     ];
 
     public function Users()
     {
-        return $this->belongsTo('App\Models\Users');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function tbl_lembur() {

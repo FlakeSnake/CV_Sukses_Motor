@@ -130,7 +130,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Salary Menu :</h6>
-                        <a class="collapse-item" href="Sallary-color.html">Salary</a>
+                        <a class="collapse-item" href="{{ url('/gaji') }}">Salary</a>
                         <a class="collapse-item" href="Salary-border.html">Attendent</a>
                         <a class="collapse-item" href="{{ url('/lembur') }}">Overtime</a>
                         <a class="collapse-item" href="Salary-border.html">History</a>
