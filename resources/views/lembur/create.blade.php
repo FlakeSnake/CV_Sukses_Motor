@@ -13,8 +13,8 @@
                         <div class="mb-2">
                             <label for="" class="form-label">Name</label><br>
                             <select class="form-control" name="users_id" id="users_id">
-                                @foreach ($user as $us, $gaji as $gj)
-                                    <option value="{{ $gj-> $us->id }}">{{ $us->name }}</option>
+                                @foreach ($user as $us)
+                                    <option value="{{ $us->id }}">{{ $us->name }}</option>
                                 @endforeach
                             </select>
                         </div>

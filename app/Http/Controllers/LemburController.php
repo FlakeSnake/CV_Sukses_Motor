@@ -34,7 +34,8 @@ class LemburController extends Controller
     public function create()
     {
         $detail = DetailAbsen::all();
-        return view('lembur.create', compact('detail'));
+        $user = User::all();
+        return view('lembur.create', compact('detail','user'));
     }
 
     /**
