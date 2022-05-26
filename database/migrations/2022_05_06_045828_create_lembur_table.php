@@ -20,6 +20,7 @@ class CreateLemburTable extends Migration
             $table->date('tanggal_lembur');
             $table->time('waktu_jam_awal');
             $table->time('waktu_jam_akhir');
+            $table->integer('total_jam_lembur');
             $table->integer('uang_lembur')->default(15000);
             $table->integer('total_uang_lembur')->nullable();
             $table->timestamps();

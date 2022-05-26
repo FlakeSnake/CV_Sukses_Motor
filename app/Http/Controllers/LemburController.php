@@ -65,6 +65,9 @@ class LemburController extends Controller
         // $period = gaji::where('id_gaji', $request->id_gaji)->first()->total_gaji;
         lembur::create([
             'id_gaji' => $request->id_gaji,
+            'tanggal_lembur' => $request->tanggal_lembur,
+            'waktu_lembur_awal' => $request->waktu_lembur_awal,
+            'waktu_lembur_akhir' => $request->waktu_lembur_akhir,
             'total_jam_lembur' => $request->total_jam_lembur,
             'total_uang_lembur' => $total,
             // 'periode_gaji' => $period,
