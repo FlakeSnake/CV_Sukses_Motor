@@ -32,19 +32,19 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="waktu_lembur_awal" class="form-label">Overtime Hour Start</label>
-                            <input type="time" class="form-control @error('waktu_lembur_awal') is-invalid @enderror" id="waktu_lembur_awal" name="waktu_lembur_awal" value="{{ old('waktu_lembur_awal')}}" required>
+                            <label for="waktu_jam_awal" class="form-label">Overtime Hour Start</label>
+                            <input type="time" class="form-control @error('waktu_jam_awal') is-invalid @enderror" id="waktu_jam_awal" name="waktu_jam_awal" value="{{ old('waktu_jam_awal')}}" required>
                             <div class="invalid-feedback">
-                                @error('waktu_lembur_awal')
+                                @error('waktu_jam_awal')
                                 {{$message}}
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="waktu_lembur_akhir" class="form-label">Overtime Hour End</label>
-                            <input type="time" class="form-control @error('waktu_lembur_akhir') is-invalid @enderror" id="waktu_lembur_akhir" name="waktu_lembur_akhir" value="{{ old('waktu_lembur_akhir')}}" required>
+                            <label for="waktu_jam_akhir" class="form-label">Overtime Hour End</label>
+                            <input type="time" class="form-control @error('waktu_jam_akhir') is-invalid @enderror" id="waktu_jam_akhir" name="waktu_jam_akhir" value="{{ old('waktu_jam_akhir')}}" required>
                             <div class="invalid-feedback">
-                                @error('waktu_lembur_akhir')
+                                @error('waktu_jam_akhir')
                                 {{$message}}
                                 @enderror
                             </div>

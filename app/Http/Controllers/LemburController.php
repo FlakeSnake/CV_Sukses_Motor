@@ -66,8 +66,8 @@ class LemburController extends Controller
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'tanggal_lembur' => $request->tanggal_lembur,
-            'waktu_lembur_awal' => $request->waktu_lembur_awal,
-            'waktu_lembur_akhir' => $request->waktu_lembur_akhir,
+            'waktu_jam_awal' => $request->waktu_jam_awal,
+            'waktu_jam_akhir' => $request->waktu_jam_akhir,
             'total_jam_lembur' => $request->total_jam_lembur,
             'total_uang_lembur' => $total,
             // 'periode_gaji' => $period,

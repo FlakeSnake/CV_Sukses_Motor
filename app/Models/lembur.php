@@ -14,8 +14,8 @@ class lembur extends Model
     protected $fillable = [
         'id_gaji',
         'tanggal_lembur',
-        'waktu_lembur_awal',
-        'waktu_lembur_akhir',
+        'waktu_jam_awal',
+        'waktu_jam_akhir',
         'total_jam_lembur',
         'uang_lembur',
         'total_uang_lembur',
@@ -24,7 +24,7 @@ class lembur extends Model
 
     public function gaji()
     {
-        return $this->hasMany('App\Models\gaji', 'id_gaji', 'id_user');
+        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_user');
     }
 
     public function dtl_jam_hadir() {
