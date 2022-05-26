@@ -45,7 +45,7 @@
                                 <td>Rp. {{ number_format($pm->total_gaji, 0, ',', '.') }}</td>
                                 <td>{{ date("M-Y",strtotime($pm->periode_gaji)) }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/gaji/'.$pm->id_gaji.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                     {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf

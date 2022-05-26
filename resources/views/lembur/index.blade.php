@@ -39,16 +39,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($lembur as $pm)
+                            @foreach($lembur as $lmbr)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $pm->total_jam_lembur }}</td>
-                                <td>Rp. {{ number_format($pm->uang_lembur, 0, ',', '.') }}</td>
-                                <td>Rp. {{ number_format($pm->total_uang_lembur, 0, ',', '.') }}</td>
-                                <td>{{ $pm->periode_gaji }}</td>
+                                <td>{{ $lmbr->total_jam_lembur }}</td>
+                                <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') }}</td>
+                                <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') }}</td>
+                                <td>{{ $lmbr->periode_gaji }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                                    {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
+                                    <a href="{{ url('/peminjaman/'.$lmbr->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $lmbr->id_pinjam]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>

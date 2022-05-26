@@ -64,6 +64,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('absen', AbsensiController::class);
     Route::resource('lembur', LemburController::class);
     Route::resource('gaji', GajiController::class);
+    Route::get('/lembur/{id_gaji}/tambah', [LemburController::class, 'tambah'])->name('lembur.tambah');
+    Route::post('/simpanlembur', [LemburController::class, 'simpan'])->name('lembur.simpan');
 });
 
 

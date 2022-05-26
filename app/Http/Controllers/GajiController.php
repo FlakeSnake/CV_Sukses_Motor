@@ -44,11 +44,13 @@ class GajiController extends Controller
      */
     public function store(Request $request)
     {
+        $gajiuser = User::where('id', $request->id_user)->first()->gaji_pokok;
         gaji::create([
             'id_user' => $request->id_user,
-            'total_gaji' => $request->total_gaji,
+            'total_gaji' => $gajiuser,
             'periode_gaji' => $request->periode_gaji,
         ]);
+
 
         return redirect('/gaji')->with('status', 'Data Saved Successfully !');
     }

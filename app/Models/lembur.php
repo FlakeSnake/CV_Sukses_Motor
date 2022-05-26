@@ -16,7 +16,7 @@ class lembur extends Model
         'total_jam_lembur',
         'uang_lembur',
         'total_uang_lembur',
-        'periode_gaji',
+
     ];
 
     public function gaji()

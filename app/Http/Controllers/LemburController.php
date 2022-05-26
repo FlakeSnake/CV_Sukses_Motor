@@ -32,12 +32,13 @@ class LemburController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $detail = DetailAbsen::all();
-        $gaji = gaji::all();
-        $user = User::all();
-        return view('lembur.create', compact('detail','user','gaji'));
+        // $detail = DetailAbsen::all();
+        // $gaji = gaji::all();
+        // $user = User::all();
+        // return view('lembur.create', compact('detail','user','gaji'));
+
     }
 
     /**
@@ -48,15 +49,39 @@ class LemburController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+
+        // $total = $request->total_jam_lembur * 15000;
+        // lembur::create([
+        //     'name' => $request->name,
+        //     'id_gaji' =>$request->id_gaji,
+        //     'total_jam_lembur' => $request->total_jam_lembur,
+        //     'periode_gaji' => $request->periode_gaji,
+        //     'total_uang_lembur' => $total
+        // ]);
+
+        $total = $request->total_jam_lembur * 15000;
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'total_jam_lembur' => $request->total_jam_lembur,
-            'periode_gaji' => $request->periode_gaji,
+            'total_uang_lembur' => $total
         ]);
+
+        $jumlah_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->total_gaji;
+        gaji::where('id_gaji', $request->id_gaji)
+            ->update([
+                'total_gaji' => $jumlah_gaji + $total
+            ]);
 
         return redirect('/lembur')->with('status', 'Data Saved Successfully !');
     }
+
+    public function tambah(gaji $gaji, Request $request)
+    {
+        $id_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->id_gaji;
+        //dd($id_gaji);
+        return view('lembur.create', compact('id_gaji'));
+    }
+
 
     /**
      * Display the specified resource.

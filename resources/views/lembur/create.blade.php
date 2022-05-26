@@ -11,17 +11,16 @@
                     <form method="post" action="{{ route('lembur.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
-                            <label for="id_gaji" class="form-label">Name</label><br>
+                            {{-- <label for="id_gaji" class="form-label">Name</label><br>
                             <select class="form-control" name="id_gaji" id="id_gaji">
                                 @foreach ($gaji as $gj)
-                                    <option value="{{ $gj->id_gaji }}">
-                                @foreach ($user as $us)
-                                {{ $us->name }}</option>
+                                    <option value="{{ $gj->id_user }}" id="{{$gj->id_user}}"> {{ $gj->Users->name }}</option>
                                 @endforeach
-
-                                @endforeach
-
-                            </select>
+                            </select> --}}
+                            <input name="id_gaji" type="hidden" value=" {{ $id_gaji }}">
+                            @error('{{$user->name}}')
+                            {{$message}}
+                            @enderror
                         </div>
                         <div class="mb-2">
                             <label for="total_jam_lembur" class="form-label">Total Overtime Hours</label>
@@ -32,15 +31,16 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-2">
+                        {{-- <div class="mb-2">
                             <label for="periode_gaji" class="form-label">Period</label>
-                            <input type="month" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
+                            <input type="date" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
                             <div class="invalid-feedback">
                                 @error('periode_gaji')
                                 {{$message}}
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
+
                         <button type="submit" class="btn btn-primary mb-5">Submit</button>
                     </form>
                 </div>
