@@ -57,7 +57,7 @@ class User extends Authenticatable
     ];
 
     public function peminjaman() {
-        return $this->hasMany('App\Models\peminjaman');
+        return $this->belongsTo('App\Models\peminjaman','id', 'id_user');
     }
 
     public function pembayaran() {
@@ -65,6 +65,6 @@ class User extends Authenticatable
     }
 
     public function gaji() {
-        return $this->hasMany('App\Models\gaji');
+        return $this->belongsTo('App\Models\gaji','id','id_user');
     }
 }

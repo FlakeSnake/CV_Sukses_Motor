@@ -148,6 +148,11 @@ class LemburController extends Controller
         //     lembur::create($request->all());
         //     $gaji->total_gaji -= $request->total_jam_lembur * 15000;
         // }
+        $lembur = lembur::find('id_gaji');
+        $gaji = gaji::find($lembur->total_uang_lembur);
+        $gaji->total_gaji += $lembur->jumlah;
+        $gaji->save();
+        lembur::where('id','id_lembur')->delete();
         $lembur->delete();
         return redirect('/lembur')->with('status', 'Data Successfully Deleted');
     }
