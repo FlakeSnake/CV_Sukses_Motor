@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', UsersController::class);
     Route::resource('pembayaran', PembayaranController::class);
     Route::resource('peminjaman', PeminjamanController::class);
-    Route::resource('absensi', AbsensiController::class);
+    Route::resource('absen', AbsensiController::class);
     Route::resource('lembur', LemburController::class);
     Route::resource('gaji', GajiController::class);
 });

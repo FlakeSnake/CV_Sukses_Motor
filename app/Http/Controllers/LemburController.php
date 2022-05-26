@@ -52,7 +52,7 @@ class LemburController extends Controller
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'total_jam_lembur' => $request->total_jam_lembur,
-            'periode_gaji' => $request->periode_gaji
+            'periode_gaji' => $request->periode_gaji,
         ]);
 
         return redirect('/lembur')->with('status', 'Data Saved Successfully !');

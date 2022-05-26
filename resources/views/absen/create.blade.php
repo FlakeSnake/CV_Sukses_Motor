@@ -1,14 +1,14 @@
 @extends('layouts/admin')
-@section('title','Add Overtime')
+@section('title','Add Attendent')
 
 @section('content')
 <div class="container">
     <div class="card shadow mb-4" style="width: 700px;">
         <div class="ml-5">
-            <h1 class="mt-3">Add Overtime</h1>
+            <h1 class="mt-3">Add Attendent</h1>
             <div class="row ">
                 <div class="col-md-8">
-                    <form method="post" action="{{ route('lembur.store') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('absen.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
                             <label for="id_gaji" class="form-label">Name</label><br>
@@ -24,10 +24,10 @@
                             </select>
                         </div>
                         <div class="mb-2">
-                            <label for="total_jam_lembur" class="form-label">Total Overtime Hours</label>
-                            <input type="number" class="form-control @error('total_jam_lembur') is-invalid @enderror" id="total_jam_lembur" name="total_jam_lembur" value="{{ old('total_jam_lembur')}}" required>
+                            <label for="jumlah_hadir" class="form-label">Total Attendent</label>
+                            <input type="number" class="form-control @error('jumlah_hadir') is-invalid @enderror" id="jumlah_hadir" name="jumlah_hadir" value="{{ old('jumlah_hadir')}}" required>
                             <div class="invalid-feedback">
-                                @error('total_jam_lembur')
+                                @error('jumlah_hadir')
                                 {{$message}}
                                 @enderror
                             </div>

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class absen extends Model
 {
+    protected $table = 'tbl_absensi';
+
+    protected $primaryKey = 'id_absensi';
+
     protected $fillable = [
         'id_gaji',
         'jumlah_hadir',
