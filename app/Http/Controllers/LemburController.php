@@ -141,9 +141,13 @@ class LemburController extends Controller
      * @param  \App\Models\lembur  $lembur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(lembur $lembur)
+    public function destroy(lembur $lembur, Request $request)
     {
-        //
+        // $gaji = gaji::findorFail($request->id_gaji);
+        // if($gaji->total_gaji >= $request->total_jam_lembur){
+        //     lembur::create($request->all());
+        //     $gaji->total_gaji -= $request->total_jam_lembur * 15000;
+        // }
         $lembur->delete();
         return redirect('/lembur')->with('status', 'Data Successfully Deleted');
     }

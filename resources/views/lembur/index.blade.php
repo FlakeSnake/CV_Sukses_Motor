@@ -33,6 +33,7 @@
                                 <th>Total Overtime Hours</th>
                                 <th>Overtime Pay</th>
                                 <th>Total Overtime Pay</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,13 @@
                                 <td>{{ $lmbr->total_jam_lembur }}</td>
                                 <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') }}</td>
                                 <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') }}</td>
+                                <td class="text-center">
+                                    <form action="{{ route('lembur.destroy', ['lembur' => $lmbr->id_lembur]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
