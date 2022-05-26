@@ -17,10 +17,11 @@ class CreateLemburTable extends Migration
             $table->id('id_lembur');
             $table->unsignedBigInteger('id_gaji');
             $table->foreign('id_gaji')->references('id_gaji')->on('tbl_gaji');
-            $table->integer('total_jam_lembur');
-            $table->integer('uang_lembur');
-            $table->integer('total_uang_lembur');
-            $table->date('periode_gaji');
+            $table->date('tanggal_lembur');
+            $table->time('waktu_jam_awal');
+            $table->time('waktu_jam_akhir');
+            $table->integer('uang_lembur')->default(15000);
+            $table->integer('total_uang_lembur')->nullable();
             $table->timestamps();
         });
     }

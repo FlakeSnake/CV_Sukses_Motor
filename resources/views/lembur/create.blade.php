@@ -31,15 +31,6 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- <div class="mb-2">
-                            <label for="periode_gaji" class="form-label">Period</label>
-                            <input type="date" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
-                            <div class="invalid-feedback">
-                                @error('periode_gaji')
-                                {{$message}}
-                                @enderror
-                            </div>
-                        </div> --}}
 
                         <button type="submit" class="btn btn-primary mb-5">Submit</button>
                     </form>

@@ -6,11 +6,8 @@
         <div class="card shadow mb-4">
             <h1 class="mt-4 ml-3">Overtime History</h1>
             <div class="card-header">
-                <a href=" {{ route('lembur.create') }}" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-plus-square"></i>
-                    </span>
-                    <span class="text">Add Overtime</span>
+                <a href=" {{ url('/gaji') }}" class="btn btn-primary btn-icon-split">
+                    <span class="text">Go To Salary</span>
                 </a>
             </div>
             <div class="col-4">
@@ -34,7 +31,6 @@
                                 <th>Total Overtime Hours</th>
                                 <th>Overtime Pay</th>
                                 <th>Total Overtime Pay</th>
-                                <th>Period</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,7 +41,6 @@
                                 <td>{{ $lmbr->total_jam_lembur }}</td>
                                 <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') }}</td>
                                 <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') }}</td>
-                                <td>{{ $lmbr->periode_gaji }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('/peminjaman/'.$lmbr->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                     {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $lmbr->id_pinjam]) }}" method="POST">

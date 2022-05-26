@@ -49,13 +49,35 @@ class AbsensiController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        // absen::create([
+        //     'id_gaji' => $request->id_gaji,
+        //     'jumlah_hadir' => $request->jumlah_hadir,
+        //     'periode_gaji' => $request->periode_gaji,
+        // ]);
+
+        // return redirect('/absen')->with('status', 'Data Saved Successfully !');
+
+        $total = $request->jumlah_hadir * 15000;
         absen::create([
             'id_gaji' => $request->id_gaji,
             'jumlah_hadir' => $request->jumlah_hadir,
-            'periode_gaji' => $request->periode_gaji,
+            'total_uang_absen' => $total
         ]);
 
+        $jumlah_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->total_gaji;
+        gaji::where('id_gaji', $request->id_gaji)
+            ->update([
+                'total_gaji' => $jumlah_gaji + $total
+            ]);
+
         return redirect('/absen')->with('status', 'Data Saved Successfully !');
+    }
+
+    public function tambah(gaji $gaji, Request $request)
+    {
+        $id_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->id_gaji;
+        //dd($id_gaji);
+        return view('absen.create', compact('id_gaji'));
     }
 
     /**

@@ -65,7 +65,7 @@ class UsersController extends Controller
         //     'foto_karyawan' => 'image|file'
         //     ]);
 
-            User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'jabatan' => $request->jabatan,
@@ -78,8 +78,14 @@ class UsersController extends Controller
             'tanggal_kelahiran' => $request->tanggal_kelahiran,
             'gaji_pokok' => $request->gaji_pokok,
             //'total_peminjaman' => $request->total_peminjaman,
-            'foto_karyawan' => $request->file('foto_karyawan')->store('post-images')
+            // 'foto_karyawan' => $request->file('foto_karyawan')->store('post-images')
         ]);
+
+        if ($request->file('foto_karyawan') == null) {
+            $request->foto_karyawan = $request->foto_karyawan;
+        }else{
+            $request->foto_karyawan = User::where('id', $request->id)->update(['foto_karyawan' => $request->file('foto_karyawan')->store('post-images')]);
+        }
         return redirect('/home')->with('status', 'Data Saved Successfully !');
     }
 

@@ -22,8 +22,10 @@ class LemburController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+        $gaji = gaji::all();
         $lembur = lembur::all();
-        return view('lembur.index', compact('lembur'));
+        return view('lembur.index', compact('lembur', 'users', 'gaji'));
 
     }
 
@@ -60,10 +62,12 @@ class LemburController extends Controller
         // ]);
 
         $total = $request->total_jam_lembur * 15000;
+        // $period = gaji::where('id_gaji', $request->id_gaji)->first()->total_gaji;
         lembur::create([
             'id_gaji' => $request->id_gaji,
             'total_jam_lembur' => $request->total_jam_lembur,
-            'total_uang_lembur' => $total
+            'total_uang_lembur' => $total,
+            // 'periode_gaji' => $period,
         ]);
 
         $jumlah_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->total_gaji;

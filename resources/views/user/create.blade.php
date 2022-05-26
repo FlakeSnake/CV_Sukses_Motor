@@ -98,7 +98,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="gaji_pokok" class="form-label">Gaji Pokok</label>
-                            <input type="text" class="form-control @error('gaji_pokok') is-invalid @enderror" id="gaji_pokok" placeholder="Insert your Religion" name="gaji_pokok" value="{{ old('gaji_pokok')}}" required>
+                            <input type="number" class="form-control @error('gaji_pokok') is-invalid @enderror" id="gaji_pokok" placeholder="Insert your Primary Salary" name="gaji_pokok" value="{{ old('gaji_pokok')}}" required>
                             <div class="invalid-feedback">
                                 @error('gaji_pokok')
                                 {{$message}}

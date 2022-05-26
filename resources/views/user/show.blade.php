@@ -29,6 +29,10 @@
                                         <td>{{ $User->name }}</td>
                                     </tr>
                                     <tr>
+                                        <td>E-Mail</td>
+                                        <td>{{ $User->email }}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Place of Birth</td>
                                         <td>{{ $User->tempat_kelahiran }}</td>
                                     </tr>

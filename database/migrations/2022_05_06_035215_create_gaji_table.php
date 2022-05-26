@@ -17,7 +17,7 @@ class CreateGajiTable extends Migration
             $table->id('id_gaji');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->integer('total_gaji');
+            $table->integer('total_gaji')->nullable();
             $table->text('periode_gaji');
             $table->timestamps();
         });

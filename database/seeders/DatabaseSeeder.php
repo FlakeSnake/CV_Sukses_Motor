@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\absen;
 use App\Models\lembur;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        absen::create(
-            [ 'uang_absen' => 25000]
-        );
-
-        lembur::create(
-            [ 'uang_lembur' => 10000]
+        User::create(
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => '$2y$10$t0k7x5fgl.r.Z55sRU6U/O84XuHYMWOzmX0dcTD8svqygmtcgMH9K',
+                'jabatan' => 'Admin',
+                'no_telp' => '089123456789',
+                'alamat' => 'jln.admin',
+                'jenis_kelamin' => 'Laki-laki',
+                'agama' => 'Kristen',
+                'tempat_kelahiran' => 'Palembang',
+                'tanggal_kelahiran' => '1999-08-21',
+            ]
         );
     }
 }

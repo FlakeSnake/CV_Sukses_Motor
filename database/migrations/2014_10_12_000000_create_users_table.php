@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('jabatan');
+            $table->string('password')->nullable();
+            $table->enum('jabatan', ['Admin', 'Pegawai']);
             $table->string('alamat');
             $table->string('no_telp');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
@@ -28,8 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('agama');
             $table->string('tempat_kelahiran');
             $table->date('tanggal_kelahiran');
-            $table->integer('gaji_pokok');
-            $table->integer('total_peminjaman');
+            $table->integer('gaji_pokok')->nullable();
+            $table->integer('total_peminjaman')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

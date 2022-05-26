@@ -18,9 +18,8 @@ class CreateAbsensiTable extends Migration
             $table->unsignedBigInteger('id_gaji');
             $table->foreign('id_gaji')->references('id_gaji')->on('tbl_gaji');
             $table->integer('jumlah_hadir');
-            $table->integer('uang_absen');
-            $table->integer('total_uang_absen');
-            $table->date('periode_gaji');
+            $table->integer('uang_absen')->default(10000);
+            $table->integer('total_uang_absen')->nullable();
             $table->timestamps();
         });
     }
