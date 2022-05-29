@@ -132,6 +132,7 @@
                         <h6 class="collapse-header">Salary Menu :</h6>
                         <a class="collapse-item" href="{{ url('/gaji') }}">Salary</a>
                         <a class="collapse-item" href="{{ url('/lembur') }}">Overtime</a>
+                        <a class="collapse-item" href="{{ url('/absen') }}">Attendent</a>
                     </div>
                 </div>
             </li>

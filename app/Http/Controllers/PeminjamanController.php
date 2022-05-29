@@ -113,7 +113,17 @@ class PeminjamanController extends Controller
      */
     public function destroy(peminjaman $peminjaman)
     {
-        //
+
+        $user = User::where('id', $peminjaman->id_user)->first()->total_peminjaman;
+            $bayar = $user - $peminjaman->jumlah_peminjaman;
+            peminjaman::Where('id_pinjam', 'id_pinjam')->delete();
+             User::where('id', $peminjaman->id_user)
+            ->update([
+                'total_peminjaman' => $bayar
+            ]);
+
+
+
         $peminjaman->delete();
         return redirect('/peminjaman')->with('status', 'Data Successfully Deleted');
     }

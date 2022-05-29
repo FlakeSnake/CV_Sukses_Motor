@@ -133,7 +133,15 @@ class AbsensiController extends Controller
      */
     public function destroy(absen $absen)
     {
-        //
+        $gaji = gaji::where('id_gaji', $absen->id_gaji)->first()->total_gaji;
+            $totalabsen = $gaji - $absen->total_uang_absen;
+            absen::Where('id_absensi', 'id_absensi')->delete();
+             gaji::where('id_gaji', $absen->id_gaji)
+            ->update([
+                'total_gaji' => $totalabsen
+            ]);
+
+
         $absen->delete();
         return redirect('/absen')->with('status', 'Data Successfully Deleted');
     }

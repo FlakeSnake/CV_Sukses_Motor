@@ -30,4 +30,11 @@ class lembur extends Model
     public function dtl_jam_hadir() {
         return $this->hasMany('App\Models\DetailAbsen');
     }
+
+    public function Users()
+    {
+        return $this->belongsTo('App\Models\User','id_gaji','id');
+    }
+
+
 }

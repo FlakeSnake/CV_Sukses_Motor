@@ -121,7 +121,17 @@ class PembayaranController extends Controller
      */
     public function destroy(Pembayaran $pembayaran)
     {
-        //
+
+
+            $user = User::where('id', $pembayaran->users_id)->first()->total_peminjaman;
+            $bayar = $user + $pembayaran->jumlah_pembayaran;
+            pembayaran::Where('id_bayar', 'id_bayar')->delete();
+             User::where('id', $pembayaran->users_id)
+            ->update([
+                'total_peminjaman' => $bayar
+            ]);
+
+
         $pembayaran->delete();
         return redirect('/pembayaran')->with('status', 'Data Successfully Deleted');
     }

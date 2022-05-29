@@ -28,26 +28,30 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center">No</th>
+                                <th>Name</th>
                                 <th>Total Attendent</th>
                                 <th>Attendent Pay</th>
                                 <th>Total Attendent Pay</th>
+                                <th>Period</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($absen as $pm)
+                            @foreach($absen as $abs)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $pm->jumlah_hadir }}</td>
-                                <td>Rp. {{ number_format($pm->uang_absen, 0, ',', '.') }}</td>
-                                <td>Rp. {{ number_format($pm->total_uang_absen, 0, ',', '.') }}</td>
+                                <td>{{ $abs->Users->name ?? Null }}</td>
+                                <td>{{ $abs->jumlah_hadir }}</td>
+                                <td>Rp. {{ number_format($abs->uang_absen, 0, ',', '.') }}</td>
+                                <td>Rp. {{ number_format($abs->total_uang_absen, 0, ',', '.') }}</td>
+                                <td>{{ date("M-Y",strtotime($abs->tbl_gaji->periode_gaji ?? Null)) }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/absensi/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                                    {{-- <form action="{{ route('absensi.destroy', ['absensi' => $pm->id_pinjam]) }}" method="POST">
+                                    <a href="{{ url('/absensi/'.$abs->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('absen.destroy', ['absen' => $abs->id_absensi]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

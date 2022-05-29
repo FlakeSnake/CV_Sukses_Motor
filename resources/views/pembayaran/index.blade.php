@@ -44,17 +44,17 @@
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
                                 <td>{{ $pb->users->name }}</td>
-                                <td>{{ $pb->tanggal_pembayaran}}</td>
+                                <td>{{ date("d-M-Y",strtotime($pb->tanggal_pembayaran))}}</td>
                                 <td>Rp. {{ number_format($pb->jumlah_pembayaran, 0, ',', '.') }}</td>
                                 <td style="max-width: 200px">{{ $pb->keterangan_pembayaran }}</td>
                                 <td>{{ $pb->metode_pembayaran }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                                    {{-- <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
+                                    <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

@@ -141,18 +141,26 @@ class LemburController extends Controller
      * @param  \App\Models\lembur  $lembur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(lembur $lembur, Request $request)
+    public function destroy(lembur $lembur)
     {
-        // $gaji = gaji::findorFail($request->id_gaji);
-        // if($gaji->total_gaji >= $request->total_jam_lembur){
-        //     lembur::create($request->all());
-        //     $gaji->total_gaji -= $request->total_jam_lembur * 15000;
-        // }
-        $lembur = lembur::find('id_gaji');
-        $gaji = gaji::find($lembur->total_uang_lembur);
-        $gaji->total_gaji += $lembur->jumlah;
-        $gaji->save();
-        lembur::where('id','id_lembur')->delete();
+
+        $gaji = gaji::where('id_gaji', $lembur->id_gaji)->first()->total_gaji;
+            $totalgaji = $gaji - $lembur->total_uang_lembur;
+            lembur::Where('id_lembur', 'id_lembur')->delete();
+             gaji::where('id_gaji', $lembur->id_gaji)
+            ->update([
+                'total_gaji' => $totalgaji
+            ]);
+
+
+
+        // $lembur = lembur::find($id_lembur);
+        // $gaji = gaji::find($lembur->total_uang_lembur);
+        // $gaji->total_gaji += $lembur->;
+        // $gaji->save();
+        // lembur::where('id',$id_lembur)->delete();
+
+
         $lembur->delete();
         return redirect('/lembur')->with('status', 'Data Successfully Deleted');
     }

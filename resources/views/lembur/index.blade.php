@@ -28,10 +28,12 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center">No</th>
+                                <th>Name</td>
+                                <th>Date</th>
                                 <th>Hour Start</th>
                                 <th>Hour End</th>
                                 <th>Total Overtime Hours</th>
-                                <th>Overtime Pay</th>
+
                                 <th>Total Overtime Pay</th>
                                 <th>Action</th>
                             </tr>
@@ -40,11 +42,13 @@
                             @foreach($lembur as $lmbr)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $lmbr->waktu_jam_awal }}</td>
-                                <td>{{ $lmbr->waktu_jam_akhir }}</td>
-                                <td>{{ $lmbr->total_jam_lembur }}</td>
-                                <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') }}</td>
-                                <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') }}</td>
+                                <td>{{ $lmbr->Users->name ?? Null }}</td>
+                                <td>{{ date("d-M-Y",strtotime($lmbr->tanggal_lembur ?? Null))  }}</td>
+                                <td>{{ $lmbr->waktu_jam_awal     ?? Null }}</td>
+                                <td>{{ $lmbr->waktu_jam_akhir ?? Null }}</td>
+                                <td>{{ $lmbr->total_jam_lembur ?? Null }}</td>
+                                {{-- <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') ?? Null  }}</td> --}}
+                                <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') ?? Null  }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('lembur.destroy', ['lembur' => $lmbr->id_lembur]) }}" method="POST">
                                         @method('DELETE')

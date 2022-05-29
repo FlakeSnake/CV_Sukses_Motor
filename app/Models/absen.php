@@ -21,6 +21,11 @@ class absen extends Model
 
     public function tbl_gaji()
     {
-        return $this->belongsTo('App\Models\gaji');
+        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_user');
+    }
+
+    public function Users()
+    {
+        return $this->belongsTo('App\Models\User','id_gaji','id');
     }
 }

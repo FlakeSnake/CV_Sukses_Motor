@@ -44,15 +44,15 @@
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
                                 <td>{{ $pm->users->name }}</td>
                                 <td>{{ $pm->alasan_peminjaman}}</td>
-                                <td>{{ $pm->tanggal_peminjaman}}</td>
+                                <td>{{ date("d-M-Y",strtotime($pm->tanggal_peminjaman))}}</td>
                                 <td>Rp. {{ number_format($pm->jumlah_peminjaman, 0, ',', '.') }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                                    {{-- <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
+                                    <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
