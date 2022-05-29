@@ -65,15 +65,15 @@ class User extends Authenticatable
     }
 
     public function gaji() {
-        return $this->belongsTo('App\Models\gaji','id','id_user');
+        return $this->hasMany('App\Models\gaji','id','id_user');
     }
 
-    public function lembur() {
-        return $this->belongsTo('App\Models\lembur','id','id_gaji');
-    }
+    // public function lembur() {
+    //     return $this->belongsTo('App\Models\lembur','id','id_gaji');
+    // }
 
-    public function absen() {
-        return $this->belongsTo('App\Models\absen','id','id_gaji');
-    }
+    // public function absen() {
+    //     return $this->hasMany('App\Models\absen','id','id_gaji');
+    // }
 
 }

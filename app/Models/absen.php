@@ -19,9 +19,9 @@ class absen extends Model
         'periode_gaji',
     ];
 
-    public function tbl_gaji()
+    public function gaji()
     {
-        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_user');
+        return $this->belongsTo('App\Models\gaji','id_gaji', 'id_user');
     }
 
     public function Users()

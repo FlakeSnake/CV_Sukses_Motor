@@ -42,7 +42,7 @@
                             @foreach($lembur as $lmbr)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $lmbr->Users->name ?? Null }}</td>
+                                <td>{{ $lmbr->gaji->Users->name ?? Null }}</td>
                                 <td>{{ date("d-M-Y",strtotime($lmbr->tanggal_lembur ?? Null))  }}</td>
                                 <td>{{ $lmbr->waktu_jam_awal     ?? Null }}</td>
                                 <td>{{ $lmbr->waktu_jam_akhir ?? Null }}</td>

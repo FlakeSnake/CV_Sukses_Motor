@@ -23,6 +23,7 @@ class AbsensiController extends Controller
     public function index()
     {
         $absen = absen::all();
+        // dd($absen);
         return view('absen.index', compact('absen'));
 
     }
@@ -57,7 +58,7 @@ class AbsensiController extends Controller
 
         // return redirect('/absen')->with('status', 'Data Saved Successfully !');
 
-        $total = $request->jumlah_hadir * 15000;
+        $total = $request->jumlah_hadir * 30000;
         absen::create([
             'id_gaji' => $request->id_gaji,
             'jumlah_hadir' => $request->jumlah_hadir,

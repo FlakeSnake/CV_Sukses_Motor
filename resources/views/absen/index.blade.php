@@ -40,13 +40,12 @@
                             @foreach($absen as $abs)
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $abs->Users->name ?? Null }}</td>
+                                <td>{{ $abs->gaji->Users->name ?? Null}}</td>
                                 <td>{{ $abs->jumlah_hadir }}</td>
                                 <td>Rp. {{ number_format($abs->uang_absen, 0, ',', '.') }}</td>
                                 <td>Rp. {{ number_format($abs->total_uang_absen, 0, ',', '.') }}</td>
-                                <td>{{ date("M-Y",strtotime($abs->tbl_gaji->periode_gaji ?? Null)) }}</td>
+                                <td>{{ date("M-Y",strtotime($abs->gaji->periode_gaji ?? Null)) }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/absensi/'.$abs->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                     <form action="{{ route('absen.destroy', ['absen' => $abs->id_absensi]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf

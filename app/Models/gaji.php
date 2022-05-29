@@ -21,11 +21,11 @@ class gaji extends Model
         return $this->belongsTo('App\Models\User','id_user','id');
     }
 
-    public function tbl_lembur() {
+    public function lembur() {
         return $this->hasMany('App\Models\lembur');
     }
 
-    public function tbl_absensi() {
+    public function absensi() {
         return $this->hasMany('App\Models\absensi');
     }
 }
