@@ -65,7 +65,7 @@ class User extends Authenticatable
     }
 
     public function gaji() {
-        return $this->hasMany('App\Models\gaji','id','id_user');
+        return $this->belongsTo('App\Models\gaji','id','id_user');
     }
 
     // public function lembur() {

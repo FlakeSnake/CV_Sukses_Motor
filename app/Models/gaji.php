@@ -26,6 +26,6 @@ class gaji extends Model
     }
 
     public function absensi() {
-        return $this->hasMany('App\Models\absensi');
+        return $this->belongsTo('App\Models\absensi','id_absen','id_gaji');
     }
 }

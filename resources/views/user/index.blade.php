@@ -6,11 +6,11 @@
         <div class="card shadow mb-4">
             <h1 class="mt-4 ml-3">Users List</h1>
             <div class="card-header">
-                <a href="" class="btn btn-primary btn-icon-split">
+                {{-- <a href="" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus-square"></i>
                     </span>
-                    <span class="text">Print Out</span>
+                    <span class="text">Print Out</span> --}}
                 </a>
             </div>
             <div class="col-5">

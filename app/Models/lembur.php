@@ -24,7 +24,7 @@ class lembur extends Model
 
     public function gaji()
     {
-        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_user');
+        return $this->belongsTo('App\Models\gaji', 'id_gaji', 'id_gaji');
     }
 
 
