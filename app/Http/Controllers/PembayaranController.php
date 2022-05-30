@@ -46,26 +46,18 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-
         $user = User::findorFail($request->users_id);
         if($user->total_peminjaman >= $request->jumlah_pembayaran){
+            if($request->metode_pembayaran == 'Transfer' && $user->nomor_rekening_bank == null) {
+                return redirect('/pembayaran')->with('statusdel', User::where('id', $request->users_id)->first()->name . ' doesn`t have a Bank Account!');
+            }
             Pembayaran::create($request->all());
             $user->total_peminjaman -= $request->jumlah_pembayaran;
             $user->save();
-            return redirect('/pembayaran')->with('status','Payment Data Saved Successfully !');
+            return redirect('/pembayaran')->with('status','Payment Data For ' . User::where('id', $request->users_id)->first()->name . ' Saved Successfully!');
         }else{
-            return redirect('/pembayaran')->with('statusdel','Check again with user debt!');
+            return redirect('/pembayaran')->with('statusdel','Check again ' . User::where('id', $request->users_id)->first()->name . '`s  debt!');
         }
-
-        Pembayaran::create([
-            'users_id' => $request->users_id,
-            'tanggal_pembayaran' => $request->tanggal_pembayaran,
-            'keterangan_pembayaran' => $request->keterangan_pembayaran,
-            'metode_pembayaran' => $request->metode_pembayaran,
-            'jumlah_pembayaran' => $request->jumlah_pembayaran
-        ]);
-
-        return redirect('/pembayaran')->with('status', 'Data Saved Successfully !');
     }
 
     /**
@@ -88,7 +80,6 @@ class PembayaranController extends Controller
     public function edit(Pembayaran $pembayaran)
     {
         //
-        return view('pembayaran.edit')->with('Pembayaran', $pembayaran);
     }
 
     /**
@@ -101,16 +92,6 @@ class PembayaranController extends Controller
     public function update(Request $request, Pembayaran $pembayaran)
     {
         //
-        Pembayaran::where('id_bayar', $pembayaran->id_bayar)
-            ->update([
-            'tanggal_pembayaran' => $request->tanggal_pembayaran,
-            'keterangan_pembayaran' => $request->keterangan_pembayaran,
-            'metode_pembayaran' => $request->metode_pembayaran,
-            'jumlah_pembayaran' => $request->jumlah_pembayaran,
-            ]);
-
-            return redirect('/pembayaran')->with('status', 'Data Successfully Changed!');
-
     }
 
     /**
@@ -121,18 +102,15 @@ class PembayaranController extends Controller
      */
     public function destroy(Pembayaran $pembayaran)
     {
-
-
-            $user = User::where('id', $pembayaran->users_id)->first()->total_peminjaman;
-            $bayar = $user + $pembayaran->jumlah_pembayaran;
-            pembayaran::Where('id_bayar', 'id_bayar')->delete();
-             User::where('id', $pembayaran->users_id)
-            ->update([
-                'total_peminjaman' => $bayar
-            ]);
-
+        $user = User::where('id', $pembayaran->users_id)->first()->total_peminjaman;
+        $bayar = $user + $pembayaran->jumlah_pembayaran;
+        pembayaran::Where('id_bayar', 'id_bayar')->delete();
+        User::where('id', $pembayaran->users_id)
+        ->update([
+            'total_peminjaman' => $bayar
+        ]);
 
         $pembayaran->delete();
-        return redirect('/pembayaran')->with('status', 'Data Successfully Deleted');
+        return redirect('/pembayaran')->with('status', 'Payment Data For ' . User::where('id', $pembayaran->users_id)->first()->name . ' Successfully Deleted!');
     }
 }

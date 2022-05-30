@@ -22,7 +22,6 @@ class PeminjamanController extends Controller
     {
         $peminjaman = peminjaman::all();
         return view('peminjaman.index', compact('peminjaman'));
-
     }
 
     /**
@@ -49,16 +48,7 @@ class PeminjamanController extends Controller
         $peminjaman->total_peminjaman += $request->jumlah_peminjaman;
         $peminjaman->save();
 
-        return redirect('/peminjaman')->with('status', 'Loan Data Saved Successfully');
-
-        // dd($request);
-        peminjaman::create([
-            'id_user' => $request->id_user,
-            'alasan_peminjaman' => $request->alasan_peminjaman,
-            'tanggal_peminjaman' => $request->tanggal_peminjaman,
-            'jumlah_peminjaman' => $request->jumlah_peminjaman,
-        ]);
-        return redirect('/peminjaman')->with('status', 'Data Saved Successfully !');
+        return redirect('/peminjaman')->with('status', 'Loan Data For ' . User::where('id', $request->id_user)->first()->name . ' Saved Successfully!');
     }
 
     /**
@@ -94,15 +84,21 @@ class PeminjamanController extends Controller
     public function update(Request $request, peminjaman $peminjaman)
     {
         //
+
         peminjaman::where('id_pinjam', $peminjaman->id_pinjam)
             ->update([
                 'alasan_peminjaman' => $request->alasan_peminjaman,
                 'tanggal_peminjaman' => $request->tanggal_peminjaman,
                 'jumlah_peminjaman' => $request->jumlah_peminjaman,
             ]);
+            $bayar = $request->jumlah_peminjaman;
+            User::where('id', $peminjaman->id_user)
+                ->update([
+                    'total_peminjaman' => $bayar
+                ]);
 
         return redirect('/peminjaman')->with('status', 'Data Successfully Changed!');
-
+        // $user = User::where('id', $peminjaman->id_user)->first()->total_peminjaman;
     }
 
     /**
@@ -113,18 +109,18 @@ class PeminjamanController extends Controller
      */
     public function destroy(peminjaman $peminjaman)
     {
-
         $user = User::where('id', $peminjaman->id_user)->first()->total_peminjaman;
+        if( $user >= $peminjaman->jumlah_peminjaman) {
             $bayar = $user - $peminjaman->jumlah_peminjaman;
             peminjaman::Where('id_pinjam', 'id_pinjam')->delete();
              User::where('id', $peminjaman->id_user)
             ->update([
                 'total_peminjaman' => $bayar
             ]);
-
-
-
-        $peminjaman->delete();
-        return redirect('/peminjaman')->with('status', 'Data Successfully Deleted');
+            $peminjaman->delete();
+            return redirect('/peminjaman')->with('status', 'Data Successfully Deleted!');
+        } else {
+            return redirect('/peminjaman')->with('statusdel', 'This User Already have Payment!');
+        }
     }
 }

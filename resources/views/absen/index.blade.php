@@ -1,23 +1,23 @@
 @extends('layouts/admin')
-@section('title','View Attendent')
+@section('title','View Attendance')
 
 @section('content')
     <div class="container rounded-circle">
         <div class="card shadow mb-4">
-            <h1 class="mt-4 ml-3">Attendent History</h1>
+            <h1 class="mt-4 ml-3">Attendance History</h1>
             <div class="card-header">
                 <a href=" {{ url('/gaji') }}" class="btn btn-primary btn-icon-split">
                     <span class="text">Go To Salary</span>
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-5">
                 @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('status') }}
                 </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mt-3">
                     {{ session('statusdel') }}
                 </div>
                 @endif

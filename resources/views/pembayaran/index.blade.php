@@ -13,14 +13,14 @@
                     <span class="text">Add Payment</span>
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-5">
                 @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('status') }}
                 </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mt-3">
                     {{ session('statusdel') }}
                 </div>
                 @endif
@@ -49,7 +49,7 @@
                                 <td style="max-width: 200px">{{ $pb->keterangan_pembayaran }}</td>
                                 <td>{{ $pb->metode_pembayaran }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    {{-- <a href="{{ url('/pembayaran/'.$pb->id_bayar.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a> --}}
                                     <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="card shadow mb-4" style="width: 700px;">
         <div class="ml-5">
-            <h1 class="mt-3">Edit user profile</h1>
+            <h1 class="mt-3">Edit Loan</h1>
             <div class="row ">
                 <div class="col-md-8">
                     <form method="POST" action="{{ route('peminjaman.update',['peminjaman'=>$peminjaman->id_pinjam])}}" enctype="multipart/form-data">

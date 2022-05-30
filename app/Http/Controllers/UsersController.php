@@ -77,6 +77,7 @@ class UsersController extends Controller
             'tempat_kelahiran' => $request->tempat_kelahiran,
             'tanggal_kelahiran' => $request->tanggal_kelahiran,
             'gaji_pokok' => $request->gaji_pokok,
+            'password' => hash::make($request->tanggal_kelahiran),
             //'total_peminjaman' => $request->total_peminjaman,
             // 'foto_karyawan' => $request->file('foto_karyawan')->store('post-images')
         ]);
@@ -84,9 +85,9 @@ class UsersController extends Controller
         if ($request->file('foto_karyawan') == null) {
             $request->foto_karyawan = $request->foto_karyawan;
         }else{
-            $request->foto_karyawan = User::where('id', $request->id)->update(['foto_karyawan' => $request->file('foto_karyawan')->store('post-images')]);
+            $request->foto_karyawan = User::where('email', $request->email)->update(['foto_karyawan' => $request->file('foto_karyawan')->store('post-images')]);
         }
-        return redirect('/home')->with('status', 'Data Saved Successfully !');
+        return redirect('/user')->with('status', 'Data ' . $request->name . ' Saved Successfully!');
     }
 
     public function show($user)
@@ -122,7 +123,7 @@ class UsersController extends Controller
                 $user->foto_karyawan = User::where('id', $user->id)->update(['foto_karyawan' => $request->file('foto_karyawan')->store('post-images')]);
             }
 
-            return redirect('/user')->with('status', 'Data Successfully Changed!');
+            return redirect('/user')->with('status', 'Data ' . $user->name . ' Successfully Changed!');
 
     }
 
@@ -136,13 +137,13 @@ class UsersController extends Controller
                 ->update([
                     'password' => hash::make($request->password)
                 ]);
-        return redirect('/user')->with('status','Password ' . $user->name . ' berhasil di update !');
+        return redirect('/user')->with('status','Password ' . $user->name . ' Successfully Changed!');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('/user')->with('status', 'Data Successfully Deleted');
+        return redirect('/user')->with('status', 'Data ' . $user->name . ' Successfully Deleted!');
     }
 
 

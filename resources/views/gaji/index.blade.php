@@ -13,14 +13,14 @@
                     <span class="text">Add Salary</span>
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('status') }}
                 </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mt-3">
                     {{ session('statusdel') }}
                 </div>
                 @endif
@@ -50,7 +50,7 @@
                                             <i class="fas fa-fw fa-edit"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendent</a>
+                                            <a class="dropdown-item" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendance</a>
                                             <a class="dropdown-item" href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}">Overtime</a>
                                         </div>
                                     {{-- </li> --}}

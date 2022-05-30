@@ -58,6 +58,9 @@ class AbsensiController extends Controller
 
         // return redirect('/absen')->with('status', 'Data Saved Successfully !');
 
+        $gaji = gaji::all();
+        $user = User::all();
+
         $total = $request->jumlah_hadir * 30000;
         absen::create([
             'id_gaji' => $request->id_gaji,
@@ -71,13 +74,12 @@ class AbsensiController extends Controller
                 'total_gaji' => $jumlah_gaji + $total
             ]);
 
-        return redirect('/absen')->with('status', 'Data Saved Successfully !');
+        return redirect('/absen')->with('status', 'Attendance Data Saved Successfully!');
     }
 
     public function tambah(gaji $gaji, Request $request)
     {
         $id_gaji = gaji::where('id_gaji', $request->id_gaji)->first()->id_gaji;
-        //dd($id_gaji);
         return view('absen.create', compact('id_gaji'));
     }
 
@@ -122,7 +124,7 @@ class AbsensiController extends Controller
             'jumlah_absen' => $request->jumlah_absen,
             ]);
 
-            return redirect('/absen')->with('status', 'Data Successfully Changed!');
+            return redirect('/absen')->with('status', 'Attendance Data Successfully Changed!');
 
     }
 
@@ -144,6 +146,6 @@ class AbsensiController extends Controller
 
 
         $absen->delete();
-        return redirect('/absen')->with('status', 'Data Successfully Deleted');
+        return redirect('/absen')->with('status', 'Attendance Data Successfully Deleted!');
     }
 }

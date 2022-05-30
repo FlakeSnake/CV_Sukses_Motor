@@ -13,14 +13,14 @@
                     <span class="text">Add Loan</span>
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-5">
                 @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('status') }}
                 </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mt-3">
                     {{ session('statusdel') }}
                 </div>
                 @endif
@@ -47,7 +47,7 @@
                                 <td>{{ date("d-M-Y",strtotime($pm->tanggal_peminjaman))}}</td>
                                 <td>Rp. {{ number_format($pm->jumlah_peminjaman, 0, ',', '.') }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                    {{-- <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a> --}}
                                     <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf

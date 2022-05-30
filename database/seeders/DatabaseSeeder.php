@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
                 'agama' => 'Kristen',
                 'tempat_kelahiran' => 'Palembang',
                 'tanggal_kelahiran' => '1999-08-21',
+                'gaji_pokok' => 1500000
             ]
         );
     }

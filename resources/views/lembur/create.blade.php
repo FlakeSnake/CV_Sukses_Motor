@@ -58,6 +58,7 @@
                                 @enderror
                             </div>
                         </div>
+                        <a href="{{ route('gaji.index')}}" class="btn btn-info mb-5"><i class="fas fa-arrow-left"> Cancel</i></a>
                         <button type="submit" class="btn btn-primary mb-5">Submit</button>
                     </form>
                 </div>

@@ -79,7 +79,7 @@ class LemburController extends Controller
                 'total_gaji' => $jumlah_gaji + $total
             ]);
 
-        return redirect('/lembur')->with('status', 'Data Saved Successfully !');
+        return redirect('/lembur')->with('status', 'Overtime Data Saved Successfully!');
     }
 
     public function tambah(gaji $gaji, Request $request)
@@ -131,7 +131,7 @@ class LemburController extends Controller
             'jumlah_lembur' => $request->jumlah_lembur,
             ]);
 
-            return redirect('/lembur')->with('status', 'Data Successfully Changed!');
+            return redirect('/lembur')->with('status', 'Overtime Data Successfully Changed!');
 
     }
 
@@ -162,6 +162,6 @@ class LemburController extends Controller
 
 
         $lembur->delete();
-        return redirect('/lembur')->with('status', 'Data Successfully Deleted');
+        return redirect('/lembur')->with('status', 'Overtime Data Successfully Deleted!');
     }
 }

@@ -120,6 +120,7 @@
             @endif
 
             <!-- Nav Item - Salary Collapse Menu -->
+            @if(Auth::user()->jabatan == 'Admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalary"
                     aria-expanded="true" aria-controls="collapseSalary">
@@ -131,11 +132,12 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Salary Menu :</h6>
                         <a class="collapse-item" href="{{ url('/gaji') }}">Salary</a>
+                        <a class="collapse-item" href="{{ url('/absen') }}">Attendance</a>
                         <a class="collapse-item" href="{{ url('/lembur') }}">Overtime</a>
-                        <a class="collapse-item" href="{{ url('/absen') }}">Attendent</a>
                     </div>
                 </div>
             </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -168,7 +170,7 @@
                         <a class="btn" href="user/{{ Auth::user()->id }}">
                             {{ auth()->user()->name }}
                             @if (Auth::user()->foto_karyawan)
-                            <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 5%; border-radius: 50%"></i>
+                            <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 10%; border-radius: 50%"></i>
                             @else
                             <i class=""><img src="{{ asset('assets/image/PP.jpg') }}" alt="" style="width: 5%; border-radius: 50%"></i>
                             @endif

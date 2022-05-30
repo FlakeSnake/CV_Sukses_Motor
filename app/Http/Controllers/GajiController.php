@@ -22,7 +22,6 @@ class GajiController extends Controller
     {
         $gaji = gaji::all();
         return view('gaji.index', compact('gaji'));
-
     }
 
     /**
@@ -44,15 +43,14 @@ class GajiController extends Controller
      */
     public function store(Request $request)
     {
+
         $gajiuser = User::where('id', $request->id_user)->first()->gaji_pokok;
         gaji::create([
             'id_user' => $request->id_user,
             'total_gaji' => $gajiuser,
             'periode_gaji' => $request->periode_gaji,
         ]);
-
-
-        return redirect('/gaji')->with('status', 'Data Saved Successfully !');
+        return redirect('/gaji')->with('status', 'Salary Data For ' . User::where('id', $request->id_user)->first()->name . ' in ' . date("M-Y",strtotime($request->periode_gaji)) . ' Saved Successfully!');
     }
 
     /**
@@ -75,7 +73,6 @@ class GajiController extends Controller
     public function edit(gaji $gaji)
     {
         //
-        return view('gaji.edit')->with('gaji', $gaji);
     }
 
     /**
@@ -88,16 +85,6 @@ class GajiController extends Controller
     public function update(Request $request, gaji $gaji)
     {
         //
-        gaji::where('id_bayar', $gaji->id_bayar)
-            ->update([
-            'tanggal_gaji' => $request->tanggal_gaji,
-            'keterangan_gaji' => $request->keterangan_gaji,
-            'metode_gaji' => $request->metode_gaji,
-            'jumlah_gaji' => $request->jumlah_gaji,
-            ]);
-
-            return redirect('/gaji')->with('status', 'Data Successfully Changed!');
-
     }
 
     /**
@@ -109,7 +96,5 @@ class GajiController extends Controller
     public function destroy(gaji $gaji)
     {
         //
-        $gaji->delete();
-        return redirect('/gaji')->with('status', 'Data Successfully Deleted');
     }
 }

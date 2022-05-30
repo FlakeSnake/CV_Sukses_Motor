@@ -10,14 +10,14 @@
                     <span class="text">Go To Salary</span>
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-5">
                 @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('status') }}
                 </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mt-3">
                     {{ session('statusdel') }}
                 </div>
                 @endif

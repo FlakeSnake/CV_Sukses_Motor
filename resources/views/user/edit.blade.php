@@ -3,6 +3,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('user.index')}}" class="btn btn-info mb-2"><i class="fas fa-arrow-left"> Cancel</i></a>
     <div class="card shadow mb-4" style="width: 700px;">
         <div class="ml-5">
             <h1 class="mt-3">Edit user profile</h1>
