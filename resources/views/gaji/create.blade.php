@@ -12,7 +12,8 @@
                         @csrf
                         <div class="mb-2">
                             <label for="" class="form-label">Name</label><br>
-                            <select class="form-control" name="id_user" id="id_user">
+                            <select oninvalid="this.setCustomValidity('Select the User!')" oninput="this.setCustomValidity('')" class="form-control" name="id_user" id="id_user" required>
+                                <option value="" disabled selected>Select User</option>
                                 @foreach ($user as $us)
                                     <option value="{{ $us->id }}">{{ $us->name }}</option>
                                 @endforeach
@@ -20,7 +21,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="periode_gaji" class="form-label">Period</label>
-                            <input type="month" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
+                            <input type="month"  oninvalid="this.setCustomValidity('Select the Period!')" oninput="this.setCustomValidity('')" class="form-control @error('periode_gaji') is-invalid @enderror" id="periode_gaji" placeholder="Insert the Total Payment" name="periode_gaji" value="{{ old('periode_gaji')}}" required>
                             <div class="invalid-feedback">
                                 @error('periode_gaji')
                                 {{$message}}
@@ -35,4 +36,21 @@
         </div>
     </div>
 </div>
+<script>
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear();
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    today = year + '-' + month;
+    document.getElementById("periode_gaji").setAttribute("max", today);
+</script>
 @endsection

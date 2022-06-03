@@ -24,7 +24,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_hadir" class="form-label">Total Attendance</label>
-                            <input type="number" class="form-control @error('jumlah_hadir') is-invalid @enderror" id="jumlah_hadir" name="jumlah_hadir" value="{{ old('jumlah_hadir')}}" required>
+                            <input type="number" min="0" max="31" oninvalid="this.setCustomValidity('Insert the valid Total Attendance!\nHint: 0-31')" oninput="this.setCustomValidity('')" class="form-control @error('jumlah_hadir') is-invalid @enderror" id="jumlah_hadir" name="jumlah_hadir" value="{{ old('jumlah_hadir')}}" required>
                             <div class="invalid-feedback">
                                 @error('jumlah_hadir')
                                 {{$message}}

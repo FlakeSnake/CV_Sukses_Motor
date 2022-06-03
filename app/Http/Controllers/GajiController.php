@@ -50,7 +50,7 @@ class GajiController extends Controller
             'total_gaji' => $gajiuser,
             'periode_gaji' => $request->periode_gaji,
         ]);
-        return redirect('/gaji')->with('status', 'Salary Data For ' . User::where('id', $request->id_user)->first()->name . ' in ' . date("M-Y",strtotime($request->periode_gaji)) . ' Saved Successfully!');
+        return redirect('/gaji')->with('status', 'Salary Data for ' . User::where('id', $request->id_user)->first()->name . ' in ' . date("M-Y",strtotime($request->periode_gaji)) . ' Saved Successfully!');
     }
 
     /**

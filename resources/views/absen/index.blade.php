@@ -29,9 +29,9 @@
                             <tr>
                                 <th style="text-align: center">No</th>
                                 <th>Name</th>
-                                <th>Total Attendent</th>
-                                <th>Attendent Pay</th>
-                                <th>Total Attendent Pay</th>
+                                <th>Total Attendance</th>
+                                <th>Attendance Pay</th>
+                                <th>Total Attendance Pay</th>
                                 <th>Period</th>
                                 <th>Action</th>
                             </tr>
@@ -41,7 +41,13 @@
                             <tr>
                                 <td style="text-align: center">{{ $loop->iteration }}</td>
                                 <td>{{ $abs->gaji->Users->name ?? Null}}</td>
-                                <td>{{ $abs->jumlah_hadir }}</td>
+                                <td>{{ $abs->jumlah_hadir }}
+                                    @if ($abs->jumlah_hadir == 1)
+                                        Day
+                                    @else
+                                        Days
+                                    @endif
+                                </td>
                                 <td>Rp. {{ number_format($abs->uang_absen, 0, ',', '.') }}</td>
                                 <td>Rp. {{ number_format($abs->total_uang_absen, 0, ',', '.') }}</td>
                                 <td>{{ date("M-Y",strtotime($abs->gaji->periode_gaji ?? Null)) }}</td>
@@ -49,7 +55,7 @@
                                     <form action="{{ route('absen.destroy', ['absen' => $abs->id_absensi]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

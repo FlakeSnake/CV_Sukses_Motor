@@ -118,7 +118,7 @@ class PeminjamanController extends Controller
                 'total_peminjaman' => $bayar
             ]);
             $peminjaman->delete();
-            return redirect('/peminjaman')->with('status', 'Data Successfully Deleted!');
+            return redirect('/peminjaman')->with('status', 'Loan Data for ' . User::where('id', $peminjaman->id_user)->first()->name . ' Successfully Deleted!');
         } else {
             return redirect('/peminjaman')->with('statusdel', 'This User Already have Payment!');
         }

@@ -65,6 +65,10 @@ class UsersController extends Controller
         //     'foto_karyawan' => 'image|file'
         //     ]);
 
+        if(User::where('email', $request->email)->count() > 0) {
+            return redirect('/user')->with('statusdel', 'E-Mail ' . $request->email . ' has been taken!');
+        }
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -123,7 +127,7 @@ class UsersController extends Controller
                 $user->foto_karyawan = User::where('id', $user->id)->update(['foto_karyawan' => $request->file('foto_karyawan')->store('post-images')]);
             }
 
-            return redirect('/user')->with('status', 'Data ' . $user->name . ' Successfully Changed!');
+            return redirect('/user')->with('status', 'Data ' . $request->name . ' Successfully Changed!');
 
     }
 
@@ -133,11 +137,14 @@ class UsersController extends Controller
 
     public function updatepass(Request $request,User $user)
     {
+        if($request->password != $request->password2) {
+            return redirect('/user')->with('statusdel', 'The Password is not the same!');
+        }
         User::where('id',$user->id)
                 ->update([
                     'password' => hash::make($request->password)
                 ]);
-        return redirect('/user')->with('status','Password ' . $user->name . ' Successfully Changed!');
+        return redirect('/user')->with('status','Password for ' . $user->name . ' Successfully Changed!');
     }
 
     public function destroy(User $user)

@@ -53,7 +53,7 @@
                                     <form action="{{ route('pembayaran.destroy', ['pembayaran' => $pb->id_bayar]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-info btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

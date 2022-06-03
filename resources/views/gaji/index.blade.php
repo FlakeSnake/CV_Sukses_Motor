@@ -47,11 +47,11 @@
                                 <td class="text-center">
                                     {{-- <li class="nav-item dropdown"> --}}
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-fw fa-edit"></i>
+                                            <i class="fas fa-fw fa-plus"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendance</a>
-                                            <a class="dropdown-item" href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}">Overtime</a>
+                                            <a class="dropdown-item btn" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendance</a>
+                                            <a class="dropdown-item btn" href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}">Overtime</a>
                                         </div>
                                     {{-- </li> --}}
                                         {{-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-toggle="collapse" data-target="#collapseAction{{ $loop->iteration }}"

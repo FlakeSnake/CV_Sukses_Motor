@@ -170,7 +170,7 @@
                         <a class="btn" href="user/{{ Auth::user()->id }}">
                             {{ auth()->user()->name }}
                             @if (Auth::user()->foto_karyawan)
-                            <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 10%; border-radius: 50%"></i>
+                            <i class=""><img src="{{ asset('storage/'. Auth::user()->foto_karyawan) }}" alt="" style="width: 50px; border-radius: 50%"></i>
                             @else
                             <i class=""><img src="{{ asset('assets/image/PP.jpg') }}" alt="" style="width: 5%; border-radius: 50%"></i>
                             @endif

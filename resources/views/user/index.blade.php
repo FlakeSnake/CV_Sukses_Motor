@@ -53,10 +53,8 @@
                                         <a href="{{ url('/user/'.$us->id.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
                                         @method('delete')
                                         @csrf
-                                        <button @if($us->peminjaman()->exists() || $us->gaji()->exists() )  disabled @endif  type="submit"  class="btn btn-danger btn-circle btn-sm ml-1"><i class="fas fa-trash-alt"></i></button>
+                                        <button @if($us->peminjaman()->exists() || $us->gaji()->exists() || $us->email == 'admin@gmail.com')  disabled @endif  type="submit"  class="btn btn-danger btn-circle btn-sm ml-1"><i class="fas fa-trash-alt"></i></button>
                                     </form>
-
-
                                 </td>
                             </tr>
                             @endforeach

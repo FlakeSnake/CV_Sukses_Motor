@@ -13,7 +13,7 @@
                         @method('PATCH')
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Masukkan Password" name="password">
+                            <input type="password" oninvalid="this.setCustomValidity('Insert a new Password!')" oninput="this.setCustomValidity('')" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Insert new Password" name="password" required>
                             <div class="invalid-feedback">
                                 @error('password')
                                 {{$message}}
@@ -21,10 +21,10 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="password2" class="form-label">Konfirmasi Password</label>
-                            <input type="password" class="form-control @error('password2') is-invalid @enderror" id="password2" placeholder="Masukkan Password" name="password_confirmation">
+                            <label for="password2" class="form-label">Password Confirmation</label>
+                            <input type="password" oninvalid="this.setCustomValidity('Insert the new Password for confirmation!')" oninput="this.setCustomValidity('')" class="form-control @error('password2') is-invalid @enderror" id="password2" placeholder="Insert the new Password for confirmation" name="password2" required>
                             <div class="invalid-feedback">
-                                @error('password_confirmation')
+                                @error('password2')
                                 {{$message}}
                                 @enderror
                             </div>
