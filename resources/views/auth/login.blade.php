@@ -14,11 +14,11 @@
                         <div class="form-group row" style="margin-left: 24%">
                             <div class="col-md-8" style="">
                                 <input type ="text" placeholder="E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                                </span>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
+                                        <strong class="card" style="text-align: center">{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                             {{-- <label for="email" class="col-md-3 col-form-label " style="background: white; opacity: 80%; font-weight: 1000; border-radius: 15px; text-align: center">{{ __('E-Mail Address') }}</label>
