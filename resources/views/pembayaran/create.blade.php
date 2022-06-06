@@ -8,6 +8,13 @@
             <h1 class="mt-3">Add Payment</h1>
             <div class="row ">
                 <div class="col-md-8">
+
+                    @if (session('statusdel'))
+                <div class="alert alert-danger mt-3">
+                    {{ session('statusdel') }}
+                </div>
+                @endif
+
                     <form method="post" action="{{ route('pembayaran.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">

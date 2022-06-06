@@ -22,10 +22,10 @@ class gaji extends Model
     }
 
     public function lembur() {
-        return $this->hasMany('App\Models\lembur');
+        return $this->belongsTo('App\Models\lembur','id_gaji', 'id_gaji');
     }
 
-    public function absensi() {
-        return $this->belongsTo('App\Models\absensi','id_absen','id_gaji');
+    public function absen() {
+        return $this->belongsTo('App\Models\absen','id_gaji','id_gaji');
     }
 }

@@ -39,7 +39,7 @@ class PembayaranController extends Controller
         if(count($peminjaman) == 0) {
             return redirect('/pembayaran')->with('statusdel','There is no Loan right now!');
         }
-        $user = User::all();
+        $user = User::where('total_peminjaman','>',0)->get();
         return view('pembayaran.create', compact('user'));
     }
 
@@ -64,7 +64,7 @@ class PembayaranController extends Controller
             if($user->total_peminjaman == 0) {
                 return redirect('/pembayaran')->with('statusdel', User::where('id', $request->users_id)->first()->name . ' doesn`t have a Loan!');
             }
-            return redirect('/pembayaran')->with('statusdel','Check again ' . User::where('id', $request->users_id)->first()->name . '`s  debt!');
+            return redirect('/pembayaran/create')->with('statusdel', User::where('id', $request->users_id)->first()->name . '`s  debt' . ' Is Rp.' .  User::where('id', $request->users_id)->first()->total_peminjaman);
         }
     }
 

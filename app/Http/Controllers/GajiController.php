@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\gaji;
 use App\Models\User;
+use App\Models\absen;
+use App\Models\lembur;
 use Illuminate\Http\Request;
 
 class GajiController extends Controller
@@ -35,6 +37,8 @@ class GajiController extends Controller
         return view('gaji.create', compact('user'));
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,9 +63,13 @@ class GajiController extends Controller
      * @param  \App\Models\gaji  $gaji
      * @return \Illuminate\Http\Response
      */
-    public function show(gaji $gaji)
+    public function show($id)
     {
-        //
+
+        $gaji = gaji::where('id_gaji', $id)->get()->first();
+        $user = User::where('id', $gaji->id_user)->get()->first();
+        $absen = absen::where('id_gaji',$gaji->id)->get()->first();
+        return view('gaji.slipgaji', compact('user','gaji','absen'));
     }
 
     /**
@@ -97,4 +105,10 @@ class GajiController extends Controller
     {
         //
     }
+
+    public function cetakslipgaji(Request $request)
+    {
+
+    }
+
 }

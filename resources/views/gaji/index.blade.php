@@ -53,7 +53,11 @@
                                             <a class="dropdown-item btn" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendance</a>
                                             <a class="dropdown-item btn" href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}">Overtime</a>
                                         </div>
-                                    {{-- </li> --}}
+                                        <a href="{{ route('gaji.show',['gaji'=>$pm->id_gaji]) }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-exclamation-circle"></i></a>
+
+
+
+                                        {{-- </li> --}}
                                         {{-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-toggle="collapse" data-target="#collapseAction{{ $loop->iteration }}"
                                             aria-expanded="true" aria-controls="collapseAction{{ $loop->iteration }}">
                                             <i class="fas fa-fw fa-folder"></i>

@@ -24,8 +24,8 @@ class absen extends Model
         return $this->belongsTo('App\Models\gaji','id_gaji','id_gaji');
     }
 
-    public function Users()
-    {
-        return $this->belongsTo('App\Models\User','id_gaji','id');
-    }
+    // public function Users()
+    // {
+    //     return $this->belongsTo('App\Models\User','id_gaji','id');
+    // }
 }

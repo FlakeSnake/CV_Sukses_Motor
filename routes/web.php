@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/simpanlembur', [LemburController::class, 'simpan'])->name('lembur.simpan');
     Route::get('/absen/{id_gaji}/tambah', [AbsensiController::class, 'tambah'])->name('absen.tambah');
     Route::post('/simpanabsen', [AbsensiController::class, 'simpan'])->name('absen.simpan');
+    // Route::post('/slipgaji/cetak',[GajiController::class, 'cetakslipgaji'])->name('gaji.cetakslipgaji');
 });
 
 

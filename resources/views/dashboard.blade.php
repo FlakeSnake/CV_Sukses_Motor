@@ -21,6 +21,5 @@
         </div>
     </div>
 </div>
-
 <img src="assets\image\images.jpg" style="margin-left: auto; margin-right: auto; display: block; width: 60%">
 @endsection
