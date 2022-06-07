@@ -39,27 +39,26 @@
                     <tbody>
                         <tr>
                             <th scope="row">Gaji Pokok</th>
-                            <td>{{ $gaji->Users->gaji_pokok }}</td>
+                            <td>Rp. {{ number_format($gaji->Users->gaji_pokok, 0, ',', '.') }}</td>
 
                         </tr>
                         <tr>
                             <th scope="row">Uang Absensi</th>
-                            <td>{{  $gaji->absen->total_uang_absen ?? 0 }}</td>
+                            <td>Rp. {{ number_format($gaji->absen->total_uang_absen ?? 0, 0, ',', '.') }}</td>
 
                         </tr>
                         <tr>
                             <th scope="row">Uang Lembur</th>
-                            <td>{{ $gaji->lembur->total_uang_lembur ?? 0 }} </td>
+                            <td>Rp. {{ number_format($gaji->lembur->total_uang_lembur ?? 0, 0, ',', '.') }}</td>
 
                         </tr>
                         <tr>
                             <th scope="row" class="mt-5">  </th>
                             <td class="mt-5"> =========== + </td>
-
                         </tr>
                         <tr class="border-top">
                             <th scope="row">Total Earning</th>
-                            <td>{{ $gaji->total_gaji ?? 0 }}</td>
+                            <td>Rp. {{ number_format($gaji->total_gaji ?? 0, 0, ',', '.') }}</td>
 
                         </tr>
 

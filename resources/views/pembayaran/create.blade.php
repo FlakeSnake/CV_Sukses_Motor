@@ -22,7 +22,7 @@
                             <select oninvalid="this.setCustomValidity('Select a User!')" oninput="this.setCustomValidity('')" class="form-control" name="users_id" id="users_id" required>
                                 <option value="" disabled selected>Select User</option>
                                 @foreach ($user as $us)
-                                    <option value="{{ $us->id }}">{{ $us->name }}</option>
+                                    <option value="{{ $us->id }}">{{ $us->name }} - Loan : Rp. {{ number_format($us->total_peminjaman, 0, ',', '.') }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -45,12 +45,9 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="metode_pembayaran" class="form-label">Payment Method</label><br>
-                            <select oninvalid="this.setCustomValidity('Select the Payment Method!')" oninput="this.setCustomValidity('')" class="form-control" name="metode_pembayaran" id="metode_pembayaran" required>
-                                <option value="" disabled selected>Select the Payment Method</option>
-                                <option value="Transfer" id="metode_pembayaran" name="metode_pembayaran">Transfer</option>
-                                <option value="Cash" id="metode_pembayaran" name="metode_pembayaran">Cash</option>
-                            </select>
+                            <label for="metode_pembayaran" class="radio">Payment Method</label><br>
+                            <ul style="float: right"><input type="radio" name="metode_pembayaran" value="Transfer"> Transfer</ul>
+                            <ul><input type="radio" name="metode_pembayaran" value="Cash" checked> Cash</ul>
                         </div>
                         <div class="mb-2">
                             <label for="jumlah_pembayaran" class="form-label">Total Payment</label>

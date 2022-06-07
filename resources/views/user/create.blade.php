@@ -7,12 +7,24 @@
         <div class="ml-5">
             <h1 class="mt-3">Add User</h1>
             <div class="row ">
+                <div class="col-5">
+                    @if (session('status'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                    @if (session('statusdel'))
+                    <div class="alert alert-danger mt-3">
+                        {{ session('statusdel') }}
+                    </div>
+                    @endif
+                </div>
                 <div class="col-md-8">
                     <form method="post" action="{{ route('user.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Insert a valid Name!')" oninput="this.setCustomValidity('')" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Insert your Name" name="name" required>
+                            <input type="text" pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Insert a valid Name!')" oninput="this.setCustomValidity('')" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Insert your Name" name="name" required value="{{ old('name') }}">
                             <div class="invalid-feedback">
                                 @error('name')
                                 {{$message}}
@@ -48,12 +60,11 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="" class="form-label">Gender</label><br>
-                            <select oninvalid="this.setCustomValidity('Select the Gender!')" oninput="this.setCustomValidity('')" class="form-control" name="jenis_kelamin" id="jenis_kelamin" required>
-                                <option value="" disabled selected>Select the Gender</option>
-                                <option value="Laki-Laki" id="jenis_kelamin" name="jenis_kelamin">Male</option>
-                                <option value="Perempuan" id="jenis_kelamin" name="jenis_kelamin">Female</option>
-                            </select>
+                            <label for="" class="radio">Gender</label><br>
+                            <ul style="float: right"><input type="radio" name="jenis_kelamin" value="Perempuan"> Female</ul>
+                            <ul><input type="radio" name="jenis_kelamin" value="Laki-Laki" checked> Male</ul>
+                            {{-- <input type="radio" name="jenis_kelamin" value="Laki-Laki" class="btn">Male
+                            <input type="radio" name="jenis_kelamin" value="Perempuan">Female --}}
                         </div>
                         <div class="mb-2">
                             <label for="no_telp" class="form-label">Phone Number</label>
@@ -75,11 +86,13 @@
                         </div>
                         <div class="mb-2">
                             <label for="" class="form-label">Role</label><br>
-                            <select oninvalid="this.setCustomValidity('Select the Role!')" oninput="this.setCustomValidity('')" class="form-control" name="jabatan" id="jabatan" required>
+                            <ul style="float: right"><input type="radio" name="jabatan" value="Admin"> Admin</ul>
+                            <ul><input type="radio" name="jabatan" value="Pegawai" checked> Employee</ul>
+                            {{-- <select oninvalid="this.setCustomValidity('Select the Role!')" oninput="this.setCustomValidity('')" class="form-control" name="jabatan" id="jabatan" required>
                                 <option value="" disabled selected>Select the Role</option>
                                 <option value="Admin" id="jabatan" name="jabatan">Admin</option>
                                 <option value="Pegawai" id="jabatan" name="jabatan">Employee</option>
-                            </select>
+                            </select> --}}
                         </div>
                         <div class="mb-2">
                             <label for="nomor_rekening_bank" class="form-label">Bank Account</label>
@@ -92,7 +105,15 @@
                         </div>
                         <div class="mb-2">
                             <label for="agama" class="form-label">Religion</label>
-                            <input type="text" pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Insert a Religion!')" oninput="this.setCustomValidity('')" class="form-control @error('agama') is-invalid @enderror" id="agama" placeholder="Insert your Religion" name="agama" required>
+                            <select oninvalid="this.setCustomValidity('Select the Religion!')" oninput="this.setCustomValidity('')" class="form-control" name="agama" id="agama" required>
+                                <option value="" disabled selected>Select the Religion</option>
+                                <option value="Islam" id="agama" name="agama">Islam</option>
+                                <option value="Buddha" id="agama" name="agama">Buddha</option>
+                                <option value="Kristen" id="agama" name="agama">Kristen</option>
+                                <option value="Katolik" id="agama" name="agama">Katolik</option>
+                                <option value="Hindu" id="agama" name="agama">Hindu</option>
+                                <option value="Konghucu" id="agama" name="agama">Konghucu</option>
+                            </select>
                             <div class="invalid-feedback">
                                 @error('agama')
                                 {{$message}}

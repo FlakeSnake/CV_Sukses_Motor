@@ -8,6 +8,18 @@
         <div class="ml-5">
             <h1 class="mt-3">Edit user profile</h1>
             <div class="row ">
+                <div class="col-5">
+                    @if (session('status'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                    @if (session('statusdel'))
+                    <div class="alert alert-danger mt-3">
+                        {{ session('statusdel') }}
+                    </div>
+                    @endif
+                </div>
                 <div class="col-md-8">
                     <form method="POST" action="{{ route('user.update',['user'=>$User->id])}}" enctype="multipart/form-data">
                         @csrf
@@ -50,10 +62,8 @@
                         </div>
                         <div class="mb-2">
                             <label for="jenis_kelamin" class="form-label">Gender</label><br>
-                            <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
-                                <option value="Laki-laki" {{ "Laki-laki" == $User->jenis_kelamin ? 'selected' : null }}>Male</option>
-                                <option value="Perempuan" {{ "Perempuan" == $User->jenis_kelamin ? 'selected' : null }}>Female</option>
-                            </select>
+                            <ul><input type="radio" name="jenis_kelamin" value="Laki-laki" {{ "Laki-laki" == $User->jenis_kelamin ? 'checked' : null }}>Male</ul>
+                            <ul><input type="radio" name="jenis_kelamin" value="Perempuan" {{ "Perempuan" == $User->jenis_kelamin ? 'checked' : null }}>Female</ul>
                         </div>
                         <div class="mb-2">
                             <label for="no_telp" class="form-label">Phone Number</label>
@@ -84,7 +94,15 @@
                         </div>
                         <div class="mb-2">
                             <label for="agama" class="form-label">Religion</label>
-                            <input type="text" pattern="[a-zA-Z]+" oninvalid="this.setCustomValidity('Insert a Religion!')" oninput="this.setCustomValidity('')" class="form-control @error('agama') is-invalid @enderror" id="agama" placeholder="Insert your Religion" name="agama" value="{{ $User->agama}}" required>
+                            <select oninvalid="this.setCustomValidity('Select the Religion!')" oninput="this.setCustomValidity('')" class="form-control" name="agama" id="agama" required>
+                                <option value="" disabled selected>Select the Religion</option>
+                                <option value="Islam" {{ "Islam" == $User->agama ? 'selected' : null }}>Islam</option>
+                                <option value="Buddha" {{ "Buddha" == $User->agama ? 'selected' : null }}>Buddha</option>
+                                <option value="Kristen" {{ "Kristen" == $User->agama ? 'selected' : null }}>Kristen</option>
+                                <option value="Katolik" {{ "Katolik" == $User->agama ? 'selected' : null }}>Katolik</option>
+                                <option value="Hindu" {{ "Hindu" == $User->agama ? 'selected' : null }}>Hindu</option>
+                                <option value="Konghucu" {{ "Konghucu" == $User->agama ? 'selected' : null }}>Konghucu</option>
+                            </select>
                             <div class="invalid-feedback">
                                 @error('agama')
                                 {{$message}}

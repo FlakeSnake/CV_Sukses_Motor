@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('nomor_rekening_bank')->nullable();
             $table->string('foto_karyawan')->nullable();
-            $table->string('agama');
+            $table->enum('agama', ['Islam', 'Buddha', 'Kristen', 'Katolik', 'Hindu', 'Konghucu']);
             $table->string('tempat_kelahiran');
             $table->date('tanggal_kelahiran');
             $table->integer('gaji_pokok')->nullable();

@@ -23,7 +23,8 @@ class UsersController extends Controller
 
     public function create()
     {
-        return view('user.create');
+        $users = User::all();
+        return view('user.create', compact('users'));
     }
 
     public function store(Request $request) {
@@ -66,7 +67,7 @@ class UsersController extends Controller
         //     ]);
 
         if(User::where('email', $request->email)->count() > 0) {
-            return redirect('/user')->with('statusdel', 'E-Mail ' . $request->email . ' has been taken!');
+            return redirect('/user/create')->with('statusdel', 'E-Mail ' . $request->email . ' has been taken!');
         }
 
         User::create([
@@ -107,6 +108,10 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user)
     {
+        if(User::where('email', $request->email)->count() > 1) {
+            return redirect('/user/'. $user->id .'/edit')->with('statusdel', 'E-Mail ' . $request->email . ' has been taken!');
+        }
+
         User::where('id', $user->id)
             ->update([
             'name' => $request->name,

@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top" oncontextmenu="return false">
+<body id="page-top">
 
 
     <!-- Page Wrapper -->
