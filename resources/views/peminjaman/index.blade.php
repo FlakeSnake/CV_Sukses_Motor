@@ -1,5 +1,5 @@
 @extends('layouts/admin')
-@section('title','View Loan')
+@section('title', 'View Loan')
 
 @section('content')
     <div class="container rounded-circle">
@@ -15,14 +15,14 @@
             </div>
             <div class="col-5">
                 @if (session('status'))
-                <div class="alert alert-success mt-3">
-                    {{ session('status') }}
-                </div>
+                    <div class="alert alert-success mt-3">
+                        {{ session('status') }}
+                    </div>
                 @endif
                 @if (session('statusdel'))
-                <div class="alert alert-danger mt-3">
-                    {{ session('statusdel') }}
-                </div>
+                    <div class="alert alert-danger mt-3">
+                        {{ session('statusdel') }}
+                    </div>
                 @endif
             </div>
             <div class="card-body p-2 m-3">
@@ -39,22 +39,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($peminjaman as $pm)
-                            <tr>
-                                <td style="text-align: center">{{ $loop->iteration }}</td>
-                                <td>{{ $pm->users->name }}</td>
-                                <td>{{ $pm->alasan_peminjaman}}</td>
-                                <td>{{ date("d-M-Y",strtotime($pm->tanggal_peminjaman))}}</td>
-                                <td>Rp. {{ number_format($pm->jumlah_peminjaman, 0, ',', '.') }}</td>
-                                <td class="text-center">
-                                    {{-- <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a> --}}
-                                    <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @foreach ($peminjaman as $pm)
+                                <tr>
+                                    <td style="text-align: center">{{ $loop->iteration }}</td>
+                                    <td>{{ $pm->users->name }}</td>
+                                    <td>{{ $pm->alasan_peminjaman }}</td>
+                                    <td>{{ date('d-M-Y', strtotime($pm->tanggal_peminjaman)) }}</td>
+                                    <td>Rp. {{ number_format($pm->jumlah_peminjaman, 0, ',', '.') }}</td>
+                                    <td class="text-center">
+                                        {{-- <a href="{{ url('/peminjaman/'.$pm->id_pinjam.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a> --}}
+                                        <form action="{{ route('peminjaman.destroy', ['peminjaman' => $pm->id_pinjam]) }}"
+                                            method="POST">
+                                            @method('DELETE')
+                                            @csrf
+
+                                            <button type="submit"
+                                                class="btn btn-danger btn-circle btn-sm"
+                                                href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-fw fa-trash"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right animated--grow-in"
+                                                aria-labelledby="navbarDropdown">
+                                                <input type="password" name="password" id="password"
+                                                    placeholder="Enter your password"> <br>
+                                                <button class="btn btn-danger btn-sm" type="submit">Submit</button>
+                                            </div>
+                                            {{-- <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button> --}}
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

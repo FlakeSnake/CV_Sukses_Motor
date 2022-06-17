@@ -7,7 +7,9 @@ use App\Models\peminjaman;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PembayaranController extends Controller
 {
@@ -37,8 +39,7 @@ class PembayaranController extends Controller
     public function create()
     {
         $user = User::where('total_peminjaman','>',0)->get();
-        $pinjam = peminjaman::where('tanggal_peminjaman')->get();
-        return view('pembayaran.create', compact('user', 'pinjam'));
+        return view('pembayaran.create', compact('user'));
     }
 
     /**
@@ -121,15 +122,20 @@ class PembayaranController extends Controller
      */
     public function destroy(Pembayaran $pembayaran)
     {
-        $user = User::where('id', $pembayaran->users_id)->first()->total_peminjaman;
-        $bayar = $user + $pembayaran->jumlah_pembayaran;
-        pembayaran::Where('id_bayar', 'id_bayar')->delete();
-        User::where('id', $pembayaran->users_id)
-        ->update([
-            'total_peminjaman' => $bayar
-        ]);
+        if (Hash::check(request()->password, Auth::user()->password)) {
+            $user = User::where('id', $pembayaran->users_id)->first()->total_peminjaman;
+            $bayar = $user + $pembayaran->jumlah_pembayaran;
+            pembayaran::Where('id_bayar', 'id_bayar')->delete();
+            User::where('id', $pembayaran->users_id)
+            ->update([
+                'total_peminjaman' => $bayar
+            ]);
 
-        $pembayaran->delete();
-        return redirect('/pembayaran')->with('status', 'Payment Data For ' . User::where('id', $pembayaran->users_id)->first()->name . ' Successfully Deleted!');
+            $pembayaran->delete();
+            return redirect('/pembayaran')->with('status', 'Payment Data For ' . User::where('id', $pembayaran->users_id)->first()->name . ' Successfully Deleted!');
+        } else {
+            return redirect('/pembayaran')->with('statusdel', 'Password is incorect');
+        }
+
     }
 }

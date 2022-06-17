@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\peminjaman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PeminjamanController extends Controller
 {
@@ -109,18 +111,23 @@ class PeminjamanController extends Controller
      */
     public function destroy(peminjaman $peminjaman)
     {
-        $user = User::where('id', $peminjaman->id_user)->first()->total_peminjaman;
-        if( $user >= $peminjaman->jumlah_peminjaman) {
-            $bayar = $user - $peminjaman->jumlah_peminjaman;
-            peminjaman::Where('id_pinjam', 'id_pinjam')->delete();
-             User::where('id', $peminjaman->id_user)
-            ->update([
-                'total_peminjaman' => $bayar
-            ]);
-            $peminjaman->delete();
-            return redirect('/peminjaman')->with('status', 'Loan Data for ' . User::where('id', $peminjaman->id_user)->first()->name . ' Successfully Deleted!');
+        // dd(request()->password);
+        if (Hash::check(request()->password, Auth::user()->password)) {
+            $user = User::where('id', $peminjaman->id_user)->first()->total_peminjaman;
+            if( $user >= $peminjaman->jumlah_peminjaman) {
+                $bayar = $user - $peminjaman->jumlah_peminjaman;
+                peminjaman::Where('id_pinjam', 'id_pinjam')->delete();
+                User::where('id', $peminjaman->id_user)
+                ->update([
+                    'total_peminjaman' => $bayar
+                ]);
+                $peminjaman->delete();
+                return redirect('/peminjaman')->with('status', 'Loan Data for ' . User::where('id', $peminjaman->id_user)->first()->name . ' Successfully Deleted!');
+            } else {
+                return redirect('/peminjaman')->with('statusdel', 'This User Already have Payment!');
+            }
         } else {
-            return redirect('/peminjaman')->with('statusdel', 'This User Already have Payment!');
+            return redirect('/peminjaman')->with('statusdel', 'Password is incorect');
         }
     }
 }
