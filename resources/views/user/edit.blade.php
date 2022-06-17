@@ -62,8 +62,8 @@
                         </div>
                         <div class="mb-2">
                             <label for="jenis_kelamin" class="form-label">Gender</label><br>
+                            <ul style="float: right"><input type="radio" name="jenis_kelamin" value="Perempuan" {{ "Perempuan" == $User->jenis_kelamin ? 'checked' : null }}>Female</ul>
                             <ul><input type="radio" name="jenis_kelamin" value="Laki-laki" {{ "Laki-laki" == $User->jenis_kelamin ? 'checked' : null }}>Male</ul>
-                            <ul><input type="radio" name="jenis_kelamin" value="Perempuan" {{ "Perempuan" == $User->jenis_kelamin ? 'checked' : null }}>Female</ul>
                         </div>
                         <div class="mb-2">
                             <label for="no_telp" class="form-label">Phone Number</label>

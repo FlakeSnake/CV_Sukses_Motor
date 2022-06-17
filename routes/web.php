@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user/edit/{user}/editpass', [UsersController::class, 'editpass'])->name('user.editpass');
     Route::patch('/user/edit/{user}', [UsersController::class, 'updatepass'])->name('user.updatepass');
+    Route::get('/user/list', [UsersController::class, 'list'])->name('user.list');
     Route::resource('user', UsersController::class);
     Route::resource('pembayaran', PembayaranController::class);
     Route::resource('peminjaman', PeminjamanController::class);

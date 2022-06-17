@@ -22,7 +22,7 @@
 
     <script>
         function randombg(){
-        var random= Math.floor(Math.random() * 25) + 0;
+        var random= Math.floor(Math.random() * 10) + 0;
         var bigSize = [
             "url( {{ asset('assets/image/1.jpg') }} )",
             "url( {{ asset('assets/image/2.jpg') }} )",
@@ -34,21 +34,6 @@
             "url( {{ asset('assets/image/8.jpg') }} )",
             "url( {{ asset('assets/image/9.jpg') }} )",
             "url( {{ asset('assets/image/10.jpg') }} )",
-            "url( {{ asset('assets/image/11.jpg') }} )",
-            "url( {{ asset('assets/image/12.jpg') }} )",
-            "url( {{ asset('assets/image/13.jpg') }} )",
-            "url( {{ asset('assets/image/14.jpg') }} )",
-            "url( {{ asset('assets/image/15.jpg') }} )",
-            "url( {{ asset('assets/image/16.jpg') }} )",
-            "url( {{ asset('assets/image/17.jpg') }} )",
-            "url( {{ asset('assets/image/18.jpg') }} )",
-            "url( {{ asset('assets/image/19.jpg') }} )",
-            "url( {{ asset('assets/image/20.jpg') }} )",
-            "url( {{ asset('assets/image/21.jpg') }} )",
-            "url( {{ asset('assets/image/22.jpg') }} )",
-            "url( {{ asset('assets/image/23.jpg') }} )",
-            "url( {{ asset('assets/image/24.jpg') }} )",
-            "url( {{ asset('assets/image/25.jpg') }} )",
     ];
         document.querySelector("body").style.backgroundImage=bigSize[random];
       }

@@ -52,7 +52,7 @@
 
                         <div class="mb-2">
                             <label for="date" class="form-label">Birthday</label>
-                            <input type="date" oninvalid="this.setCustomValidity('Select the Birthday Date!')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_kelahiran') is-invalid @enderror" min="1990-01-01" id="tanggal_kelahiran" placeholder="Insert your Birthday" name="tanggal_kelahiran" required>
+                            <input type="date" oninvalid="this.setCustomValidity('Select the Birthday Date! From 01-01-1970')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_kelahiran') is-invalid @enderror" min="1970-01-01" id="tanggal_kelahiran" placeholder="Insert your Birthday" name="tanggal_kelahiran" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_kelahiran')
                                 {{$message}}

@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tanggal_peminjaman" class="form-label">Loan Date</label>
-                            <input type="date" oninvalid="this.setCustomValidity('Select the Loan Date!')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" name="tanggal_peminjaman" required>
+                            <input type="date" min="1970-01-01" oninvalid="this.setCustomValidity('Select the Loan Date!')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman" name="tanggal_peminjaman" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_peminjaman')
                                 {{$message}}

@@ -21,6 +21,12 @@ class UsersController extends Controller
         return view('user.index', compact('users'));
     }
 
+    public function list()
+    {
+        $user = User::where('total_peminjaman','>',0)->get();
+        return view('user.list', compact('user'));
+    }
+
     public function create()
     {
         $users = User::all();

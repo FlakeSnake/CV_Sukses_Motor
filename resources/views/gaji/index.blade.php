@@ -46,6 +46,7 @@
                                 <td>{{ date("M-Y",strtotime($pm->periode_gaji)) }}</td>
                                 <td class="text-center">
                                     {{-- <li class="nav-item dropdown"> --}}
+                                        <a href="{{ route('gaji.show',['gaji'=>$pm->id_gaji]) }}" style="float: right" class="btn btn-info btn-circle btn-sm"><i class="fa fa-print"></i></a>
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-fw fa-plus"></i>
                                         </a>
@@ -53,7 +54,7 @@
                                             <a class="dropdown-item btn" href="{{ url('/absen/'.$pm->id_gaji.'/tambah') }}">Attendance</a>
                                             <a class="dropdown-item btn" href="{{ url('/lembur/'.$pm->id_gaji.'/tambah') }}">Overtime</a>
                                         </div>
-                                        <a href="{{ route('gaji.show',['gaji'=>$pm->id_gaji]) }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-exclamation-circle"></i></a>
+
 
 
 

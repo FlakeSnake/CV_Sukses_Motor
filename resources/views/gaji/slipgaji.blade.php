@@ -17,7 +17,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div> <h2> <span class="fw-bolder">Period :</span> <small class="ms-3"> {{ $gaji->periode_gaji ?? null }} </small>  </h2> </div>
+                            <div> <h2> <span class="fw-bolder">Period :</span> <small class="ms-3"> {{ date("M-Y",strtotime($gaji->periode_gaji)) ?? null }} </small>  </h2> </div>
                         </div>
                     </div>
 

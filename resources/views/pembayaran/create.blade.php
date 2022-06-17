@@ -28,7 +28,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="tanggal_pembayaran" class="form-label">Payment Date</label>
-                            <input type="date" oninvalid="this.setCustomValidity('Select the Payment Date!')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" name="tanggal_pembayaran" required>
+                            <input type="date" min="1970-01-01" oninvalid="this.setCustomValidity('Select the Payment Date!')" oninput="this.setCustomValidity('')" class="form-control @error('tanggal_pembayaran') is-invalid @enderror" id="tanggal_pembayaran" name="tanggal_pembayaran" required>
                             <div class="invalid-feedback">
                                 @error('tanggal_pembayaran')
                                 {{$message}}

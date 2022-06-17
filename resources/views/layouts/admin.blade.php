@@ -93,6 +93,7 @@
                         <h6 class="collapse-header">User Menu :</h6>
                         <a class="collapse-item" href="{{ url('/user/create') }}">Add User</a>
                         <a class="collapse-item" href="{{ url('/user') }}">View All Users</a>
+                        <a class="collapse-item" href="{{ url('/user/list') }}">List All Loans</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>

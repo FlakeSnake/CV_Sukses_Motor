@@ -47,7 +47,7 @@
                                 <td style="max-width: 100px">{{ $us->no_telp }}</td>
                                 <td style="max-width: 150px">{{ $us->alamat }}</td>
                                 <td class="text-center" style="max-width: 100px">
-                                    <form action="{{ route('user.destroy', ['user' => $us->id]) }}" method="POST">
+                                    <form action="{{ route('user.destroy', ['user' => $us->id]) }}" method="POST" >
                                         <a href="{{ url('/user/'.$us->id) }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-exclamation-circle"></i></a>
                                         <a href="{{ route('user.editpass',['user'=>$us->id])}}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-key"></i></a>
                                         <a href="{{ url('/user/'.$us->id.'/edit') }}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>

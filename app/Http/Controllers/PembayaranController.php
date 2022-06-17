@@ -37,7 +37,8 @@ class PembayaranController extends Controller
     public function create()
     {
         $user = User::where('total_peminjaman','>',0)->get();
-        return view('pembayaran.create', compact('user'));
+        $pinjam = peminjaman::where('tanggal_peminjaman')->get();
+        return view('pembayaran.create', compact('user', 'pinjam'));
     }
 
     /**

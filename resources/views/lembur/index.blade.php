@@ -46,7 +46,13 @@
                                 <td>{{ date("d-M-Y",strtotime($lmbr->tanggal_lembur ?? Null))  }}</td>
                                 <td>{{ $lmbr->waktu_jam_awal     ?? Null }}</td>
                                 <td>{{ $lmbr->waktu_jam_akhir ?? Null }}</td>
-                                <td>{{ $lmbr->total_jam_lembur ?? Null }}</td>
+                                <td>{{ $lmbr->total_jam_lembur ?? Null }}
+                                    @if ($lmbr->total_jam_lembur == 1)
+                                        Hour
+                                    @else
+                                        Hours
+                                    @endif
+                                </td>
                                 {{-- <td>Rp. {{ number_format($lmbr->uang_lembur, 0, ',', '.') ?? Null  }}</td> --}}
                                 <td>Rp. {{ number_format($lmbr->total_uang_lembur, 0, ',', '.') ?? Null  }}</td>
                                 <td class="text-center">
